@@ -1,8 +1,12 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import palette from "./palette";
 
-const theme = createTheme({
+let theme = createTheme({
   palette,
+
+  shape: {
+    borderRadius: 20,
+  },
 
   typography: {
     fontFamily: "'Nunito Sans', sans-serif",
@@ -10,26 +14,60 @@ const theme = createTheme({
     h1: {
       fontFamily: "'Cormorant Garamond', serif",
       fontWeight: 700,
+      fontSize: "5rem",
+      lineHeight: 1,
       letterSpacing: "-1px",
     },
 
     h2: {
       fontFamily: "'Cormorant Garamond', serif",
       fontWeight: 700,
-      letterSpacing: "-0.5px",
+      fontSize: "4rem",
+      lineHeight: 1.1,
     },
 
     h3: {
       fontFamily: "'Cormorant Garamond', serif",
       fontWeight: 600,
+      fontSize: "3rem",
+    },
+
+    h4: {
+      fontWeight: 700,
+      fontSize: "2rem",
+    },
+
+    body1: {
+      fontSize: "1rem",
+      lineHeight: 1.8,
     },
 
     button: {
-      fontFamily: "'Nunito Sans', sans-serif",
       fontWeight: 700,
       textTransform: "none",
+      fontSize: "1rem",
+    },
+  },
+
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: "999px",
+          paddingInline: "24px",
+          paddingBlock: "10px",
+        },
+      },
+    },
+
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "xl",
+      },
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
 
 export default theme;
