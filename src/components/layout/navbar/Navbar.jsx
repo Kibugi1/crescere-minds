@@ -11,18 +11,42 @@ import {
 } from "@mui/material";
 
 import logo from "../../../assets/images/crescere-logo.svg";
+import { Link } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { useState } from "react";
 
 const navItems = [
-  "Home",
-  "About",
-  "Services",
-  "Programs",
-  "Blog",
-  "Contact Us",
+  {
+    label: "Home",
+    path: "/",
+  },
+
+  {
+    label: "About",
+    path: "/about",
+  },
+
+  {
+    label: "Services",
+    path: "/services",
+  },
+
+  {
+    label: "Programs",
+    path: "/programs",
+  },
+
+  {
+    label: "Blog",
+    path: "/blog",
+  },
+
+  {
+    label: "Contact",
+    path: "/contact",
+  },
 ];
 
 export default function Navbar() {
@@ -88,7 +112,7 @@ export default function Navbar() {
           >
             {navItems.map((item, index) => (
               <Box
-                key={item}
+                key={item.label}
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -101,13 +125,15 @@ export default function Navbar() {
                 }}
               >
                 <Button
+                  component={Link}
+                  to={item.path}
                   sx={{
                     color: "#2E7D32",
                     fontWeight: 700,
                     minWidth: "unset",
                   }}
                 >
-                  {item}
+                  {item.label}
                 </Button>
               </Box>
             ))}
@@ -162,10 +188,14 @@ export default function Navbar() {
           <List>
             {navItems.map((item) => (
               <ListItem
-                key={item}
+                key={item.label}
                 disablePadding
               >
                 <ListItemButton
+                  component={Link}
+                  to={item.path}
+                  onClick={handleDrawerToggle}
+
                   sx={{
                     borderRadius: 2,
                     mx: 1,
@@ -183,7 +213,7 @@ export default function Navbar() {
                       fontSize: "1rem",
                     }}
                   >
-                    {item}
+                    {item.label}
                   </Box>
                 </ListItemButton>
               </ListItem>
