@@ -8,7 +8,6 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemText,
 } from "@mui/material";
 
 import logo from "../../../assets/images/crescere-logo.svg";
@@ -61,13 +60,13 @@ export default function Navbar() {
               xs: 170, // small logo on mobile
               md: 220,
             },
- 
+
             objectFit: "contain",
           }}
         />
 
-        {/* NAVIGATION */}
-       <Box
+        {/*NAVIGATION*/}
+        <Box
           sx={{
             display: {
               xs: "none",
@@ -75,48 +74,48 @@ export default function Navbar() {
             },
           }}
         >
-        <Stack
-          direction="row"
-          sx={{
-            background: "rgba(255,255,255,0.85)",
-            boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
-            backdropFilter: "blur(12px)",
-            borderRadius: "999px",
-            px: 2,
-            py: 1.2,
-            alignItems: "center",
-          }}
-        >
-          {navItems.map((item, index) => (
-            <Box
-              key={item}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                // Faint vertical separators
-                borderRight:
-                  index !== navItems.length - 1
-                    ? "1px solid rgba(46,125,50,0.18)"
-                    : "none",
-                px: 1,
-              }}
-            >
-              <Button
+          <Stack
+            direction="row"
+            sx={{
+              background: "rgba(255,255,255,0.85)",
+              boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
+              backdropFilter: "blur(12px)",
+              borderRadius: "999px",
+              px: 2,
+              py: 1.2,
+              alignItems: "center",
+            }}
+          >
+            {navItems.map((item, index) => (
+              <Box
+                key={item}
                 sx={{
-                  color: "#2E7D32",
-                  fontWeight: 700,
-                  minWidth: "unset",
+                  display: "flex",
+                  alignItems: "center",
+                  // Faint vertical separators
+                  borderRight:
+                    index !== navItems.length - 1
+                      ? "1px solid rgba(46,125,50,0.18)"
+                      : "none",
+                  px: 1,
                 }}
               >
-                {item}
-              </Button>
-            </Box>
-          ))}
-        </Stack>
-      </Box>
+                <Button
+                  sx={{
+                    color: "#2E7D32",
+                    fontWeight: 700,
+                    minWidth: "unset",
+                  }}
+                >
+                  {item}
+                </Button>
+              </Box>
+            ))}
+          </Stack>
+        </Box>
 
-      /* Mobile menu Button */
-         <Box
+        {/*Mobile menu Button */}
+        <Box
           sx={{
             display: {
               xs: "block",
@@ -143,7 +142,8 @@ export default function Navbar() {
           </IconButton>
         </Box>
       </Container>
-      /* Full mobile navigation */
+
+      { /* Full mobile navigation */}
       <Drawer
         anchor="right"
         open={mobileOpen}
@@ -165,15 +165,26 @@ export default function Navbar() {
                 key={item}
                 disablePadding
               >
-                <ListItemButton>
-                  <ListItemText
-                    primary={item}
+                <ListItemButton
+                  sx={{
+                    borderRadius: 2,
+                    mx: 1,
+                    my: 0.5,
 
-                    primaryTypographyProps={{
+                    "&:hover": {
+                      backgroundColor: "rgba(46,125,50,0.08)",
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
                       fontWeight: 700,
                       color: "#2E7D32",
+                      fontSize: "1rem",
                     }}
-                  />
+                  >
+                    {item}
+                  </Box>
                 </ListItemButton>
               </ListItem>
             ))}

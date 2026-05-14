@@ -6,7 +6,8 @@ import {
   Typography,
 } from "@mui/material";
 
-import heroBg from "../../assets/images/hero-bg.png";
+import heroDesktop from "../../assets/images/hero-desktop.png";
+import heroMobile from "../../assets/images/hero-mobile.png";
 
 export default function HeroSection() {
   return (
@@ -15,13 +16,23 @@ export default function HeroSection() {
         minHeight: "100vh",
         position: "relative",
 
-        backgroundImage: `
-          linear-gradient(
-            rgba(0,0,0,0.45),
-            rgba(0,0,0,0.45)
-          ),
-          url(${heroBg})
-        `,
+        backgroundImage: {
+          xs: `
+            linear-gradient(
+              rgba(0,0,0,0.45),
+              rgba(0,0,0,0.45)
+            ),
+            url(${heroMobile})
+            `,
+
+          md: `
+            linear-gradient(
+              rgba(0,0,0,0.45),
+              rgba(0,0,0,0.45)
+            ),
+            url(${heroDesktop})
+            `,
+        },
 
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -29,7 +40,10 @@ export default function HeroSection() {
         display: "flex",
         alignItems: "center",
 
-        py: 10,
+        py: {
+          xs: 14,
+          md: 10,
+        },
       }}
     >
       <Container>
@@ -37,7 +51,10 @@ export default function HeroSection() {
         <Box
           sx={{
             border: "2px solid rgba(255,255,255,0.6)",
-            borderRadius: 8,
+            borderRadius: {
+              xs: 5,
+              md: 8,
+            },
             backdropFilter: "blur(3px)",
 
             px: {
@@ -53,13 +70,22 @@ export default function HeroSection() {
             textAlign: "center",
 
             maxWidth: "1000px",
-            mx: "auto",
+            /*mx: "auto",*/
+            ml: "0px",
+            mt: 12,
           }}
         >
           <Typography
             variant="h1"
             sx={{
               color: "white",
+              fontSize: {
+                xs: "3.2rem",
+                sm: "4rem",
+                md: "5.5rem",
+              },
+
+              lineHeight: 1,
             }}
           >
             Growing Stronger
@@ -102,19 +128,34 @@ export default function HeroSection() {
         {/* CTA CARDS */}
         <Grid
           container
-          spacing={4}
+          spacing={{
+            xs: 2,
+            md: 4,
+          }}
           sx={{
-            mt: 4,
+            mt: {
+              xs: 1,
+              md: 12,
+            },
           }}
         >
+          {/* FIRST CTA */}
           <Grid item xs={12} md={6}>
             <Box
               sx={{
                 border: "2px solid rgba(255,255,255,0.6)",
                 borderRadius: 6,
-                p: 4,
+                p: {
+                  xs: 3,
+                  md: 4,
+                },
                 backdropFilter: "blur(3px)",
                 textAlign: "center",
+                mx: "auto",
+                maxWidth: {
+                  xs: "340px",
+                  md: "100%",
+                },
               }}
             >
               <Typography
@@ -136,14 +177,23 @@ export default function HeroSection() {
             </Box>
           </Grid>
 
+          {/* SECOND CTA */}
           <Grid item xs={12} md={6}>
             <Box
               sx={{
                 border: "2px solid rgba(255,255,255,0.6)",
                 borderRadius: 6,
-                p: 4,
+                p: {
+                  xs: 3,
+                  md: 4,
+                },
                 backdropFilter: "blur(3px)",
                 textAlign: "center",
+                mx: "auto",
+                maxWidth: {
+                  xs: "340px",
+                  md: "100%",
+                },
               }}
             >
               <Typography
