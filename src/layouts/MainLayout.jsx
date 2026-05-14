@@ -8,6 +8,7 @@ export default function MainLayout({ children }) {
         backgroundColor: "#F5F7F2",
       }}
     >
+      <Navbar />
       {children}
     </Box>
   );

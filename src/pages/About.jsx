@@ -1,7 +1,9 @@
+import MainLayout from "../layouts/MainLayout";
+
 export default function About() {
     return (
-        <>
-            About Page
-        </>
+        <MainLayout>
+            <h1>About Page</h1>
+        </MainLayout>
     );
 }

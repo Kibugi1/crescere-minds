@@ -1,7 +1,9 @@
-export default function About() {
+import MainLayout from "../layouts/MainLayout";
+
+export default function Services() {
     return (
-        <>
-            Services Page
-        </>
+        <MainLayout>
+            <h1>Services Page</h1>
+        </MainLayout>
     );
 }
