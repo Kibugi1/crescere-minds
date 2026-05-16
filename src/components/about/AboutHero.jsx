@@ -7,6 +7,8 @@ import {
     Typography,
 } from "@mui/material";
 
+import SectionHeader from "../common/typography/SectionHeader";
+
 export default function AboutHero() {
     return (
         <Box
@@ -52,87 +54,31 @@ export default function AboutHero() {
                     {/* LEFT CONTENT */}
 
                     <Grid item xs={12} md={6}>
-
                         <Box>
 
-                            <Typography
-                                variant="overline"
-                                sx={{
-                                    color: "#4CAF50",
+                            <SectionHeader
+                                eyebrow="ABOUT CRESCERE MINDS"
 
-                                    letterSpacing: 2,
+                                title={
+                                    <>
+                                        Healing Minds.
+                                        <br />
+                                        Strengthening Lives.
+                                    </>
+                                }
 
-                                    fontWeight: 700,
+                                description="
+        Crescere Minds exists to create safe,
+        supportive, and empowering spaces for
+        individuals, families, and communities
+        to grow emotionally, mentally, and
+        psychologically.
+      "
 
-                                    // Manipulation point:
-                                    // increase letterSpacing for more elegant feel
-                                }}
-                            >
-                                ABOUT CRESCERE MINDS
-                            </Typography>
+                                titleVariant="h1"
 
-
-
-                            <Typography
-                                variant="h1"
-                                sx={{
-                                    color: "#2B2B2B",
-
-                                    fontSize: {
-                                        xs: "2.5rem",
-                                        md: "4.8rem",
-                                    },
-
-                                    lineHeight: 1.1,
-
-                                    mt: 2,
-
-                                    mb: 3,
-
-                                    // Manipulation point:
-                                    // increase mt to move heading downward
-
-                                    // Manipulation point:
-                                    // increase mb to create more space below heading
-                                }}
-                            >
-                                Healing Minds.
-                                <br />
-
-                                Strengthening Lives.
-                            </Typography>
-
-
-
-                            <Typography
-                                sx={{
-                                    color: "#5B5B5B",
-
-                                    fontSize: {
-                                        xs: "1rem",
-                                        md: "1.15rem",
-                                    },
-
-                                    maxWidth: "600px",
-
-                                    lineHeight: 1.9,
-
-                                    mb: 5,
-
-                                    // Manipulation point:
-                                    // reduce maxWidth to make text area narrower
-
-                                    // Manipulation point:
-                                    // increase lineHeight for more breathing room
-                                }}
-                            >
-                                Crescere Minds exists to create safe,
-                                supportive, and empowering spaces for
-                                individuals, families, and communities
-                                to grow emotionally, mentally, and
-                                psychologically.
-                            </Typography>
-
+                                maxWidth="600px"
+                            />
 
 
                             {/* CTA BUTTONS */}
