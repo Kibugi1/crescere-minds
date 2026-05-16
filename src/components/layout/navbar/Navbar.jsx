@@ -44,7 +44,7 @@ const navItems = [
   },
 
   {
-    label: "Contact",
+    label: "Contact Us",
     path: "/contact",
   },
 ];
@@ -119,7 +119,7 @@ export default function Navbar() {
                   // Faint vertical separators
                   borderRight:
                     index !== navItems.length - 1
-                      ? "1px solid rgba(46,125,50,0.18)"
+                      ? "2px solid rgba(46,125,50,0.18)"
                       : "none",
                   px: 1,
                 }}

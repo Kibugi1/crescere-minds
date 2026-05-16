@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import Navbar from "../components/layout/navbar/Navbar";
 
 export default function MainLayout({ children }) {
   return (
