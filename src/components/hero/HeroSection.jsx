@@ -97,6 +97,11 @@ export default function HeroSection() {
                   md: 8,
                 },
 
+                pt: {
+                  xs: 12,
+                  md: 16,
+                },
+
                 mx: "auto",
                 maxWidth: {
                   xs: "340px",

@@ -29,6 +29,11 @@ export default function ServicesHero() {
                     xs: 10,
                     md: 14,
                 },
+
+                pt: {
+                    xs: 12,
+                    md: 16,
+                },
             }}
         >
 
