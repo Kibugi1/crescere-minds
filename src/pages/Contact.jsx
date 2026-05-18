@@ -1,9 +1,17 @@
 import MainLayout from "../layouts/MainLayout";
+import ContactHero from "../components/contact/ContactHero";
+import ContactMethods from "../components/contact/ContactMethods";
+import ContactFormSection from "../components/contact/ContactFormSection";
+import ContactCTA from "../components/contact/ContactCTA";
+
 
 export default function Contact() {
     return (
         <MainLayout>
-            <h1>Contact Page</h1>
+            <ContactHero />
+            <ContactMethods />
+            <ContactFormSection />
+            <ContactCTA />
         </MainLayout>
     );
 }
