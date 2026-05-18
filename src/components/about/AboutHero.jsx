@@ -28,6 +28,11 @@ export default function AboutHero() {
                     md: 14,
                 },
 
+                pt: {
+                    xs: 12,
+                    md: 16,
+                },
+
                 overflow: "hidden",
 
                 // Manipulation point:
