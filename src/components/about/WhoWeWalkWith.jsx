@@ -53,7 +53,7 @@ export default function WhoWeWalkWith() {
                     }}
                 >
 
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <AudienceCard
                             title="Teens"
 
@@ -68,7 +68,7 @@ export default function WhoWeWalkWith() {
 
 
 
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <AudienceCard
                             title="Couples & Marriages"
 
@@ -83,7 +83,7 @@ export default function WhoWeWalkWith() {
 
 
 
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <AudienceCard
                             title="Families"
 
@@ -98,7 +98,7 @@ export default function WhoWeWalkWith() {
 
 
 
-                    <Grid item xs={12} sm={6} md={6}>
+                    <Grid size={{ xs: 12, sm: 6, md: 6 }}>
                         <AudienceCard
                             title="Individuals"
 
@@ -113,7 +113,7 @@ export default function WhoWeWalkWith() {
 
 
 
-                    <Grid item xs={12} sm={6} md={6}>
+                    <Grid size={{ xs: 12, sm: 6, md: 6 }}>
                         <AudienceCard
                             title="Communities"
 
