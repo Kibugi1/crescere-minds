@@ -7,9 +7,12 @@ import Programs from "../pages/Programs";
 import Blog from "../pages/Blog";
 import Contact from "../pages/Contact";
 
+import ScrollToTop from "../components/layout/ScrollToTop";
+
 export default function AppRoutes() {
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <Routes>
 
                 <Route path="/" element={<Home />} />
