@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import Navbar from "../components/layout/navbar/Navbar";
+import Footer from "../components/layout/footer/Footer";
 
 export default function MainLayout({ children }) {
   return (
@@ -11,6 +12,7 @@ export default function MainLayout({ children }) {
     >
       <Navbar />
       {children}
+      <Footer />
     </Box>
   );
 }
