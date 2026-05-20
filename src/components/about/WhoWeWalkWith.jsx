@@ -10,6 +10,14 @@ import SectionHeader from
 import AudienceCard from
     "../common/cards/AudienceCard";
 
+import {
+    HeartHandshake,
+    Heart,
+    Home,
+    User,
+    Globe,
+} from "lucide-react";
+
 export default function WhoWeWalkWith() {
     return (
         <Box
@@ -55,6 +63,13 @@ export default function WhoWeWalkWith() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <AudienceCard
+                            icon={
+                                <HeartHandshake
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
+
                             title="Teens"
 
                             description="
@@ -70,6 +85,12 @@ export default function WhoWeWalkWith() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <AudienceCard
+                            icon={
+                                <Heart
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Couples & Marriages"
 
                             description="
@@ -85,6 +106,12 @@ export default function WhoWeWalkWith() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <AudienceCard
+                            icon={
+                                <Home
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Families"
 
                             description="
@@ -100,6 +127,13 @@ export default function WhoWeWalkWith() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 6 }}>
                         <AudienceCard
+                            icon={
+                                <User
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
+                            title="Adults"
                             title="Individuals"
 
                             description="
@@ -115,6 +149,12 @@ export default function WhoWeWalkWith() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 6 }}>
                         <AudienceCard
+                            icon={
+                                <Globe
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Communities"
 
                             description="

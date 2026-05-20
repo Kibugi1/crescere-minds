@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 
 import SectionHeader from "../common/typography/SectionHeader";
+import aboutheroimage from "../../assets/images/aboutimages/abouthero.webp";
 
 export default function AboutHero() {
     return (
@@ -58,7 +59,7 @@ export default function AboutHero() {
 
                     {/* LEFT CONTENT */}
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <Box>
 
                             <SectionHeader
@@ -129,11 +130,23 @@ export default function AboutHero() {
 
                     {/* RIGHT ILLUSTRATION AREA */}
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
 
                         <Box
                             sx={{
-                                backgroundColor: "#F3FBF5",
+                                backgroundImage: `
+      linear-gradient(
+        rgba(0,0,0,0.04),
+        rgba(0,0,0,0.04)
+      ),
+      url(${aboutheroimage})
+    `,
+
+                                backgroundSize: "cover",
+
+                                backgroundPosition: "center",
+
+                                backgroundRepeat: "no-repeat",
 
                                 borderRadius: "40px",
 
@@ -145,39 +158,22 @@ export default function AboutHero() {
                                 boxShadow:
                                     "0 20px 60px rgba(0,0,0,0.06)",
 
-                                display: "flex",
-
-                                alignItems: "center",
-
-                                justifyContent: "center",
-
                                 overflow: "hidden",
 
-                                p: 4,
+                                position: "relative",
 
                                 // Manipulation point:
-                                // increase minHeight to make illustration area taller
+                                // increase minHeight to make image taller
 
                                 // Manipulation point:
-                                // increase borderRadius for softer appearance
+                                // change backgroundPosition
+                                // e.g. "top", "center", "right"
 
                                 // Manipulation point:
-                                // change justifyContent to move content horizontally
-
-                                // Manipulation point:
-                                // change alignItems to move content vertically
+                                // reduce overlay darkness by lowering rgba values
                             }}
-                        >
+                        />
 
-                            <Typography
-                                sx={{
-                                    color: "#4CAF50",
-                                }}
-                            >
-                                Illustration Placeholder
-                            </Typography>
-
-                        </Box>
 
                     </Grid>
 

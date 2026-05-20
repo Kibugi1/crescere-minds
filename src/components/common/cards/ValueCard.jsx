@@ -4,6 +4,7 @@ import {
 } from "@mui/material";
 
 export default function ValueCard({
+    icon,
     title,
     description,
 }) {
@@ -38,8 +39,6 @@ export default function ValueCard({
             }}
         >
 
-            {/* ICON PLACEHOLDER */}
-
             <Box
                 sx={{
                     width: 60,
@@ -51,8 +50,13 @@ export default function ValueCard({
                         "rgba(76,175,80,0.12)",
 
                     mb: 3,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}
-            />
+            >
+                {icon}
+            </Box>
 
 
 

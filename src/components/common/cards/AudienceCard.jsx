@@ -4,6 +4,7 @@ import {
 } from "@mui/material";
 
 export default function AudienceCard({
+    icon,
     title,
     description,
 }) {
@@ -48,8 +49,13 @@ export default function AudienceCard({
                     backgroundColor: "rgba(76,175,80,0.12)",
 
                     mb: 3,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}
-            />
+            >
+                {icon}
+            </Box>
 
 
 

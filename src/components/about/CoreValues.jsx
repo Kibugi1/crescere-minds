@@ -10,6 +10,15 @@ import SectionHeader from
 import ValueCard from
     "../common/cards/ValueCard";
 
+import {
+    HeartPlus,
+    MessageCircleHeart,
+    Sprout,
+    ShieldCheck,
+    Users,
+    Sunrise
+} from "lucide-react";
+
 export default function CoreValues() {
     return (
         <Box
@@ -55,6 +64,12 @@ export default function CoreValues() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <ValueCard
+                            icon={
+                                <HeartPlus
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Compassion"
 
                             description="
@@ -69,6 +84,12 @@ export default function CoreValues() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <ValueCard
+                            icon={
+                                <MessageCircleHeart
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Empathy"
 
                             description="
@@ -83,6 +104,12 @@ export default function CoreValues() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <ValueCard
+                            icon={
+                                <Sprout
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Growth"
 
                             description="
@@ -97,6 +124,12 @@ export default function CoreValues() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <ValueCard
+                            icon={
+                                <ShieldCheck
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Confidentiality"
 
                             description="
@@ -111,6 +144,12 @@ export default function CoreValues() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <ValueCard
+                            icon={
+                                <Users
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Community"
 
                             description="
@@ -125,6 +164,12 @@ export default function CoreValues() {
 
                     <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <ValueCard
+                            icon={
+                                <Sunrise
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            }
                             title="Hope"
 
                             description="

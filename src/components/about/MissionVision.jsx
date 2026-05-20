@@ -63,8 +63,7 @@ export default function MissionVision() {
 
                     {/* MISSION CARD */}
 
-                    <Grid item xs={12} md={6}>
-
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <InfoCard
                             eyebrow="OUR MISSION"
 
@@ -91,7 +90,7 @@ export default function MissionVision() {
 
                     {/* VISION CARD */}
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
 
                         <InfoCard
                             eyebrow="OUR VISION"
