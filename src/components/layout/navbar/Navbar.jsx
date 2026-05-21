@@ -11,11 +11,13 @@ import {
 } from "@mui/material";
 
 import logo from "../../../assets/images/crescere-logo.svg";
+import greenlogo from "../../../assets/images/greencm.svg";
 import { Link } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const navItems = [
   {
@@ -50,6 +52,9 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -77,7 +82,12 @@ export default function Navbar() {
         {/* LOGO */}
         <Box
           component="img"
-          src={logo}
+          src={
+            isHomePage
+              ? logo
+              : greenlogo
+          }
+
           alt="Crescere Minds"
           sx={{
             width: {

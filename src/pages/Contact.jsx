@@ -11,7 +11,6 @@ export default function Contact() {
             <ContactHero />
             <ContactMethods />
             <ContactFormSection />
-            <ContactCTA />
         </MainLayout>
     );
 }

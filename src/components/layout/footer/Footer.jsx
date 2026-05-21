@@ -231,7 +231,7 @@ export default function Footer() {
                                     color: "text.secondary",
                                 }}
                             >
-                                +254 700 000 000
+                                +254 726 373 321
                             </Typography>
 
 
