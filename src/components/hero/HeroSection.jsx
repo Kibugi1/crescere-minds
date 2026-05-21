@@ -9,8 +9,11 @@ import {
 
 import heroDesktop from "../../assets/images/hero-desktop.png";
 import heroMobile from "../../assets/images/hero-mobile.png";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -199,6 +202,7 @@ export default function HeroSection() {
                 <Button
                   variant="contained"
                   color="primary"
+                  onClick={() => navigate("/contact")}
                 >
                   Get Support
                 </Button>
@@ -231,6 +235,7 @@ export default function HeroSection() {
                     color: "white",
                     borderColor: "white",
                   }}
+                  onClick={() => navigate("/programs")}
                 >
                   View Programs
                 </Button>

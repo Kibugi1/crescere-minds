@@ -9,8 +9,10 @@ import {
 
 import SectionHeader from "../common/typography/SectionHeader";
 import aboutheroimage from "../../assets/images/aboutimages/abouthero.webp";
+import { useNavigate } from "react-router-dom";
 
 export default function AboutHero() {
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -107,6 +109,7 @@ export default function AboutHero() {
                                 <Button
                                     variant="contained"
                                     size="large"
+                                    onClick={() => navigate("/contact")}
                                 >
                                     Get Support
                                 </Button>
@@ -116,6 +119,9 @@ export default function AboutHero() {
                                 <Button
                                     variant="outlined"
                                     size="large"
+                                    onClick={() =>
+                                        navigate("/about#who-we-are")
+                                    }
                                 >
                                     Learn More
                                 </Button>

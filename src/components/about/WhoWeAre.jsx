@@ -11,6 +11,7 @@ import SectionHeader from
 export default function WhoWeAre() {
     return (
         <Box
+            id="who-we-are"
             sx={{
                 backgroundColor: "background.subtle",
 
