@@ -9,8 +9,11 @@ import {
 
 import SectionHeader from
     "../common/typography/SectionHeader";
+import { useNavigate } from "react-router-dom";
 
 export default function ServicesHero() {
+    const navigate = useNavigate();
+
     return (
         <Box
             sx={{
@@ -86,6 +89,7 @@ export default function ServicesHero() {
                             <Button
                                 variant="contained"
                                 size="large"
+                                onClick={() => navigate("/contact")}
                             >
                                 Get Support
                             </Button>
@@ -95,8 +99,10 @@ export default function ServicesHero() {
                             <Button
                                 variant="outlined"
                                 size="large"
+                                onClick={() =>
+                                    navigate("/programs#crescere-programs")}
                             >
-                                Explore Programs
+                                Join a Program
                             </Button>
 
                         </Stack>
