@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
+import greencm from "../../../assets/images/greencm.svg";
 
 const footerLinks = {
     navigation: [
@@ -78,17 +79,26 @@ export default function Footer() {
 
                     <Grid size={{ xs: 12, md: 4 }}>
 
-                        <Typography
-                            variant="h3"
+                        <Box
+                            component="img"
+
+                            src={greencm}
+
+                            alt="Crescere Minds"
 
                             sx={{
-                                color: "primary.main",
+                                width: {
+                                    xs: 180,
+                                    md: 220,
+                                },
+
+                                objectFit: "contain",
 
                                 mb: 3,
+
+                                display: "block",
                             }}
-                        >
-                            Crescere Minds
-                        </Typography>
+                        />
 
 
 
