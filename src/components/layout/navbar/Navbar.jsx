@@ -53,6 +53,8 @@ const navItems = [
 
 export default function Navbar() {
   const location = useLocation();
+  const isActive = (path) =>
+    location.pathname === path;
   const isHomePage = location.pathname === "/";
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -141,6 +143,22 @@ export default function Navbar() {
                     color: "#2E7D32",
                     fontWeight: 700,
                     minWidth: "unset",
+                    borderBottom:
+                      isActive(item.path)
+                        ? "3px solid #2E7D32"
+                        : "3px solid transparent",
+
+                    borderRadius: "999px",
+
+                    pb: 1,
+
+                    transition:
+                      "all 0.3s ease",
+
+                    "&:hover": {
+                      borderBottom:
+                        "3px solid #2E7D32",
+                    },
                   }}
                 >
                   {item.label}
