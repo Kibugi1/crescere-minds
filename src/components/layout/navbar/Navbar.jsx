@@ -163,7 +163,10 @@ export default function Navbar() {
             onClick={handleDrawerToggle}
 
             sx={{
-              color: "white",
+              color:
+                isHomePage
+                  ? "white"
+                  : "#2E7D32",
 
               // ADDED:
               // Mobile glass effect
