@@ -7,10 +7,13 @@ import {
     Typography,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
+
 import SectionHeader from
     "../common/typography/SectionHeader";
 
 export default function ContactHero() {
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -34,7 +37,8 @@ export default function ContactHero() {
                     xs: 10,
                     md: 14,
                 },
-            }}
+            }
+            }
         >
 
             <Container maxWidth="xl">
@@ -85,6 +89,7 @@ export default function ContactHero() {
                             <Button
                                 variant="contained"
                                 size="large"
+                                onClick={() => navigate("/contact#contact-form")}
                             >
                                 Get Support
                             </Button>
@@ -94,6 +99,7 @@ export default function ContactHero() {
                             <Button
                                 variant="outlined"
                                 size="large"
+                                onClick={() => navigate("/contact#contact-methods")}
                             >
                                 Learn More
                             </Button>
@@ -164,6 +170,6 @@ export default function ContactHero() {
 
             </Container>
 
-        </Box>
+        </Box >
     );
 }

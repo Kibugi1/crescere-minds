@@ -7,12 +7,15 @@ import {
     TextField,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
 import SectionHeader from
     "../common/typography/SectionHeader";
 
 export default function ContactFormSection() {
+    const navigate = useNavigate();
     return (
         <Box
+            id="contact-form"
             sx={{
                 backgroundColor: "#FFFFFF",
 

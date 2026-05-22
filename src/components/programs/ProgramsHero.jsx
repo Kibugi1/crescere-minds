@@ -7,10 +7,12 @@ import {
     Typography,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
 import SectionHeader from
     "../common/typography/SectionHeader";
 
 export default function ProgramsHero() {
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -86,6 +88,9 @@ export default function ProgramsHero() {
                             <Button
                                 variant="contained"
                                 size="large"
+                                onClick={() =>
+                                    navigate("/programs#crescere-programs")
+                                }
                             >
                                 Explore Programs
                             </Button>

@@ -5,12 +5,16 @@ import {
     Typography,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
 import SectionHeader from
     "../common/typography/SectionHeader";
 
 export default function ContactMethods() {
+    const navigate = useNavigate();
     return (
+
         <Box
+            id="contact-methods"
             sx={{
                 backgroundColor: "background.subtle",
 
@@ -88,6 +92,7 @@ export default function ContactMethods() {
                     <Grid size={{ xs: 12, md: 4 }}>
 
                         <Box
+                            id="contact-methods"
                             sx={{
                                 backgroundColor:
                                     "background.paper",
@@ -110,7 +115,7 @@ export default function ContactMethods() {
                             <Typography
                                 variant="body1"
                             >
-                                +254 700 000 000
+                                +254 726 373 321
                             </Typography>
 
                         </Box>

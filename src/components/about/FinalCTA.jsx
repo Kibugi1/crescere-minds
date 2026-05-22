@@ -6,7 +6,10 @@ import {
     Typography,
 } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
+
 export default function FinalCTA() {
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -84,6 +87,7 @@ export default function FinalCTA() {
                                 backgroundColor: "#F5F5F5",
                             },
                         }}
+                        onClick={() => navigate("/contact")}
                     >
                         Get Support
                     </Button>
@@ -107,6 +111,7 @@ export default function FinalCTA() {
                                     "rgba(255,255,255,0.08)",
                             },
                         }}
+                        onClick={() => navigate("/contact#contact-form")}
                     >
                         Contact Us
                     </Button>
