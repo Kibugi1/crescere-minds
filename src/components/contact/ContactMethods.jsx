@@ -58,7 +58,12 @@ export default function ContactMethods() {
                     <Grid size={{ xs: 12, md: 4 }}>
 
                         <Box
+                            component="a"
+
+                            href="mailto:support@crescere.org"
+
                             sx={{
+
                                 backgroundColor:
                                     "background.paper",
 
@@ -67,6 +72,27 @@ export default function ContactMethods() {
                                 p: 5,
 
                                 height: "100%",
+                                display: "block",
+                                textDecoration: "none",
+
+                                cursor: "pointer",
+
+                                transition:
+                                    "all 0.3s ease",
+
+                                border:
+                                    "2px solid transparent",
+
+                                "&:hover": {
+                                    transform:
+                                        "translateY(-4px)",
+
+                                    border:
+                                        "2px solid #2E7D32",
+
+                                    boxShadow:
+                                        "0 16px 40px rgba(46,125,50,0.12)",
+                                },
                             }}
                         >
 
@@ -92,7 +118,10 @@ export default function ContactMethods() {
                     <Grid size={{ xs: 12, md: 4 }}>
 
                         <Box
-                            id="contact-methods"
+                            component="a"
+
+                            href="tel:+254726373321"
+
                             sx={{
                                 backgroundColor:
                                     "background.paper",
@@ -102,6 +131,29 @@ export default function ContactMethods() {
                                 p: 5,
 
                                 height: "100%",
+
+                                display: "block",
+
+                                textDecoration: "none",
+
+                                cursor: "pointer",
+
+                                transition:
+                                    "all 0.3s ease",
+
+                                border:
+                                    "2px solid transparent",
+
+                                "&:hover": {
+                                    transform:
+                                        "translateY(-4px)",
+
+                                    border:
+                                        "2px solid #2E7D32",
+
+                                    boxShadow:
+                                        "0 16px 40px rgba(46,125,50,0.12)",
+                                },
                             }}
                         >
 
