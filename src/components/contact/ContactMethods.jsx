@@ -179,6 +179,14 @@ export default function ContactMethods() {
                     <Grid size={{ xs: 12, md: 4 }}>
 
                         <Box
+                            component="a"
+
+                            href="https://maps.app.goo.gl/2ho4JGQ9btcSbX7R6"
+
+                            target="_blank"
+
+                            rel="noopener noreferrer"
+
                             sx={{
                                 backgroundColor:
                                     "background.paper",
@@ -188,24 +196,57 @@ export default function ContactMethods() {
                                 p: 5,
 
                                 height: "100%",
+
+                                display: "block",
+
+                                textDecoration: "none",
+
+                                cursor: "pointer",
+
+                                transition:
+                                    "all 0.3s ease",
+
+                                border:
+                                    "2px solid transparent",
+
+                                "&:hover": {
+
+                                    transform:
+                                        "translateY(-4px)",
+
+                                    border:
+                                        "2px solid #2E7D32",
+
+                                    boxShadow:
+                                        "0 16px 40px rgba(46,125,50,0.12)",
+                                },
                             }}
                         >
 
                             <Typography
                                 variant="h4"
-                                sx={{ mb: 2 }}
+                                sx={{
+                                    mb: 2,
+                                    color: "text.primary",
+                                }}
                             >
-                                Community Support
+                                Visit Us
                             </Typography>
 
                             <Typography
                                 variant="body1"
+                                sx={{
+                                    color: "text.secondary",
+                                }}
                             >
-                                Available through workshops,
-                                wellness sessions, and community
-                                initiatives.
-                            </Typography>
+                                Ruiru, Kenya
 
+                                <br /><br />
+
+                                Available for wellness sessions,
+                                workshops, community support,
+                                and collaborative initiatives.
+                            </Typography>
                         </Box>
 
                     </Grid>
