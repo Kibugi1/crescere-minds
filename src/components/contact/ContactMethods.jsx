@@ -5,6 +5,12 @@ import {
     Typography,
 } from "@mui/material";
 
+import {
+    Phone,
+    Mail,
+    MapPin,
+} from "lucide-react";
+
 import { useNavigate } from "react-router-dom";
 import SectionHeader from
     "../common/typography/SectionHeader";
@@ -95,7 +101,32 @@ export default function ContactMethods() {
                                 },
                             }}
                         >
+                            <Box
+                                sx={{
+                                    width: 56,
+                                    height: 56,
 
+                                    borderRadius: "18px",
+
+                                    backgroundColor:
+                                        "rgba(46,125,50,0.10)",
+
+                                    display: "flex",
+
+                                    alignItems: "center",
+
+                                    justifyContent: "center",
+
+                                    mb: 3,
+                                }}
+                            >
+
+                                <Mail
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+
+                            </Box>
                             <Typography
                                 variant="h4"
                                 sx={{ mb: 2 }}
@@ -156,6 +187,31 @@ export default function ContactMethods() {
                                 },
                             }}
                         >
+                            <Box
+                                sx={{
+                                    width: 56,
+                                    height: 56,
+
+                                    borderRadius: "18px",
+                                    backgroundColor:
+                                        "rgba(46,125,50,0.10)",
+
+                                    display: "flex",
+
+                                    alignItems: "center",
+
+                                    justifyContent: "center",
+
+                                    mb: 3,
+                                }}
+                            >
+
+                                <Phone
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+
+                            </Box>
 
                             <Typography
                                 variant="h4"
@@ -222,6 +278,31 @@ export default function ContactMethods() {
                                 },
                             }}
                         >
+                            <Box
+                                sx={{
+                                    width: 56,
+                                    height: 56,
+
+                                    borderRadius: "18px",
+
+                                    backgroundColor:
+                                        "rgba(46,125,50,0.10)",
+
+                                    display: "flex",
+
+                                    alignItems: "center",
+
+                                    justifyContent: "center",
+
+                                    mb: 3,
+                                }}
+                            >
+
+                                <MapPin
+                                    size={28}
+                                    color="#2E7D32"
+                                />
+                            </Box>
 
                             <Typography
                                 variant="h4"
@@ -241,12 +322,8 @@ export default function ContactMethods() {
                             >
                                 Ruiru, Kenya
 
-                                <br /><br />
-
-                                Available for wellness sessions,
-                                workshops, community support,
-                                and collaborative initiatives.
                             </Typography>
+
                         </Box>
 
                     </Grid>
@@ -255,6 +332,6 @@ export default function ContactMethods() {
 
             </Container>
 
-        </Box>
+        </Box >
     );
 }
