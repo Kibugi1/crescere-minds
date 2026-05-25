@@ -1,7 +1,10 @@
 from flask import Flask, app
 from flask_cors import CORS
 
+from datetime import timedelta
 from app.extensions.db import db
+from app.extensions.bcrypt import bcrypt
+from app.extensions.jwt import jwt
 
 def create_app():
 
@@ -11,11 +14,14 @@ def create_app():
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+    app.config["JWT_SECRET_KEY"] = "jwt-super-secret-key"
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
+
     CORS(app)
 
-    from app.extensions.bcrypt import bcrypt
     db.init_app(app)
     bcrypt.init_app(app)
+    jwt.init_app(app)
 
     from app.routes.auth_routes import auth_bp
 
