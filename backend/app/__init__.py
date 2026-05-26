@@ -27,9 +27,13 @@ def create_app():
     from app.routes.blog_routes  import blog_bp
     from app.routes.comment_routes import comment_bp
     from app.routes.contact_routes import contact_bp
+    from app.routes.program_routes import program_bp
+    
      
     app.register_blueprint(auth_bp)
     app.register_blueprint(blog_bp)
     app.register_blueprint(comment_bp)
     app.register_blueprint(contact_bp)
+    app.register_blueprint(program_bp)
+    
     return app
