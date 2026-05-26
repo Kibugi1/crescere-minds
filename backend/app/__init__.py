@@ -24,9 +24,8 @@ def create_app():
     jwt.init_app(app)
 
     from app.routes.auth_routes import auth_bp
-
+    from app.routes.blog_routes  import blog_bp
+     
     app.register_blueprint(auth_bp)
-
-
-
+    app.register_blueprint(blog_bp)
     return app
