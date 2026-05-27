@@ -121,14 +121,14 @@ export default function HeroSection() {
                   md: 8,
                 },
 
-                py: {
-                  xs: 3,
-                  md: 8,
-                },
-
                 pt: {
                   xs: 3,
                   md: 10,
+                },
+
+                pb: {
+                  xs: 3,
+                  md: 8,
                 },
 
                 mx: "auto",
