@@ -127,8 +127,8 @@ export default function HeroSection() {
                 },
 
                 pt: {
-                  xs: 8,
-                  md: 16,
+                  xs: 3,
+                  md: 10,
                 },
 
                 mx: "auto",
@@ -209,8 +209,21 @@ export default function HeroSection() {
             xs={12}
             md={4}
             sx={{
+
               display: "flex",
-              justifyContent: "flex-end", // ADDED: pushes CTA column right
+
+              justifyContent: "flex-end",
+
+              alignItems: "flex-start",
+
+              pt: {
+                xs: 0,
+                md: 6,
+              },
+
+              // Manipulation point:
+              // reduce md value
+              // if CTA still too low
             }}
           >
             <Stack
