@@ -83,39 +83,80 @@ export default function HeroSection() {
         >
 
           {/* LEFT MAIN CARD */}
-          <Grid item xs={12} md={8}>
+          <Grid
+            item
+            xs={12}
+            md={8}
+
+            sx={{
+
+              mb: {
+                xs: 6,
+                md: 0,
+              },
+
+              // Manipulation point:
+              // increase xs value
+              // for more space below hero on phones
+            }}
+          >
             <Box
               sx={{
-                border: "2px solid rgba(255,255,255,0.6)",
-                borderRadius: 8,
-                backdropFilter: "blur(3px)",
+                background: "rgba(255,255,255,0.06)",
+
+                border: "1px solid rgba(255,255,255,0.18)",
+
+                borderRadius: {
+                  xs: "40px",
+                  md: "32px",
+                },
+
+                backdropFilter: "blur(14px)",
+
+                boxShadow:
+                  "0 20px 60px rgba(0,0,0,0.12)",
 
                 px: {
-                  xs: 3,
+                  xs: 2.5,
                   md: 8,
                 },
 
                 py: {
-                  xs: 4,
+                  xs: 3,
                   md: 8,
                 },
 
                 pt: {
-                  xs: 12,
+                  xs: 8,
                   md: 16,
                 },
 
                 mx: "auto",
                 maxWidth: {
-                  xs: "340px",
+                  xs: "100%",
                   md: "100%",
                 }
               }}
             >
               <Typography
                 variant="h1"
+
                 sx={{
+
                   color: "white",
+
+                  fontSize: {
+                    xs: "4rem",
+                    sm: "4.8rem",
+                    md: "6rem",
+                  },
+
+                  lineHeight: 1.02,
+
+                  letterSpacing: "-0.03em",
+
+                  // Manipulation point:
+                  // reduce xs size if still too large
                 }}
               >
                 Growing Stronger
@@ -137,9 +178,19 @@ export default function HeroSection() {
 
               <Typography
                 sx={{
-                  color: "white",
+
+                  color: "rgba(255,255,255,0.92)",
+
                   mt: 3,
-                  maxWidth: "700px",
+
+                  maxWidth: "680px",
+
+                  fontSize: {
+                    xs: "1rem",
+                    md: "1.15rem",
+                  },
+
+                  lineHeight: 1.9,
                 }}
               >
                 Professional mental wellness support,
@@ -169,7 +220,8 @@ export default function HeroSection() {
               }}
               sx={{
                 width: {
-                  xs: "320px",
+                  xs: "100%",
+                  sm: "340px",
                   md: "320px",
                 },
 
@@ -182,11 +234,24 @@ export default function HeroSection() {
               {/* CTA 1 */}
               <Box
                 sx={{
-                  border: "2px solid rgba(255,255,255,0.6)",
-                  borderRadius: 6,
-                  p: 4,
-                  backdropFilter: "blur(3px)",
-                  textAlign: "center",
+                  background: "rgba(255,255,255,0.06)",
+
+                  border: "1px solid rgba(255,255,255,0.18)",
+
+                  borderRadius: {
+                    xs: "32px",
+                    md: "28px",
+                  },
+
+                  p: {
+                    xs: 3,
+                    md: 4,
+                  },
+
+                  backdropFilter: "blur(14px)",
+
+                  boxShadow:
+                    "0 20px 40px rgba(0,0,0,0.10)",
                 }}
               >
                 <Typography
@@ -203,6 +268,27 @@ export default function HeroSection() {
                   variant="contained"
                   color="primary"
                   onClick={() => navigate("/contact")}
+                  sx={{
+
+                    px: {
+                      xs: 4,
+                      md: 5,
+                    },
+
+                    py: {
+                      xs: 1.2,
+                      md: 1.5,
+                    },
+
+                    borderRadius: "999px",
+
+                    fontSize: {
+                      xs: "1rem",
+                      md: "1.05rem",
+                    },
+
+                    fontWeight: 700,
+                  }}
                 >
                   Get Support
                 </Button>
@@ -212,11 +298,24 @@ export default function HeroSection() {
               {/* CTA 2 */}
               <Box
                 sx={{
-                  border: "2px solid rgba(255,255,255,0.6)",
-                  borderRadius: 6,
-                  p: 4,
-                  backdropFilter: "blur(3px)",
-                  textAlign: "center",
+                  background: "rgba(255,255,255,0.06)",
+
+                  border: "1px solid rgba(255,255,255,0.18)",
+
+                  borderRadius: {
+                    xs: "32px",
+                    md: "28px",
+                  },
+
+                  p: {
+                    xs: 3,
+                    md: 4,
+                  },
+
+                  backdropFilter: "blur(14px)",
+
+                  boxShadow:
+                    "0 20px 40px rgba(0,0,0,0.10)",
                 }}
               >
                 <Typography
@@ -232,8 +331,25 @@ export default function HeroSection() {
                 <Button
                   variant="outlined"
                   sx={{
-                    color: "white",
-                    borderColor: "white",
+
+                    px: {
+                      xs: 4,
+                      md: 5,
+                    },
+
+                    py: {
+                      xs: 1.2,
+                      md: 1.5,
+                    },
+
+                    borderRadius: "999px",
+
+                    fontSize: {
+                      xs: "1rem",
+                      md: "1.05rem",
+                    },
+
+                    fontWeight: 700,
                   }}
                   onClick={() => navigate("/programs")}
                 >
