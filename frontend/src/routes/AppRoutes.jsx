@@ -7,6 +7,12 @@ import Programs from "../pages/Programs";
 import Blog from "../pages/Blog";
 import Contact from "../pages/Contact";
 
+import AdminLayout from
+    "../admin/layouts/AdminLayout";
+
+import DashboardHome from
+    "../admin/pages/DashboardHome";
+
 import ScrollToTop from "../components/layout/ScrollToTop";
 
 export default function AppRoutes() {
@@ -26,6 +32,20 @@ export default function AppRoutes() {
                 <Route path="/blog" element={<Blog />} />
 
                 <Route path="/contact" element={<Contact />} />
+
+                {/* ADMIN ROUTES */}
+
+                <Route
+                    path="/admin"
+                    element={<AdminLayout />}
+                >
+
+                    <Route
+                        path="dashboard"
+                        element={<DashboardHome />}
+                    />
+
+                </Route>
 
             </Routes>
         </BrowserRouter>
