@@ -44,7 +44,6 @@ export default function AppRoutes() {
                         path="dashboard"
                         element={<DashboardHome />}
                     />
-
                 </Route>
 
             </Routes>
