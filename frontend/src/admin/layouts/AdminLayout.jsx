@@ -83,7 +83,7 @@ export default function AdminLayout() {
                     }}
                 >
 
-                    <DashboardHome />
+                    <Outlet />
 
                 </Box>
 
