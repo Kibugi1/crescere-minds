@@ -1,5 +1,7 @@
 import {
     Grid,
+    Stack,
+    Box,
 } from "@mui/material";
 
 import {
@@ -24,12 +26,21 @@ import MessagesPreview from
 import CommentsPreview from
     "../components/dashboard/CommentsPreview";
 
+import ProgramOverview from
+    "../components/dashboard/ProgramOverview";
+import EngagementOverview from
+    "../components/dashboard/EngagementOverview";
 
 export default function DashboardHome() {
 
     return (
 
-        <>
+        <Box
+            sx={{
+
+                width: "100%",
+            }}
+        >
 
             {/* HEADER */}
 
@@ -46,15 +57,21 @@ export default function DashboardHome() {
                     xs: 2,
                     md: 3,
                 }}
+
+                sx={{
+                    alignItems: "stretch",
+                    width: "100%",
+                }}
             >
 
                 {/* TOTAL BLOGS */}
 
                 <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={3}
+                    size={{
+                        xs: 12,
+                        sm: 6,
+                        lg: 3,
+                    }}
                 >
 
                     <StatsCard
@@ -74,10 +91,11 @@ export default function DashboardHome() {
                 {/* COMMENTS */}
 
                 <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={3}
+                    size={{
+                        xs: 12,
+                        sm: 6,
+                        lg: 3,
+                    }}
                 >
 
                     <StatsCard
@@ -97,10 +115,11 @@ export default function DashboardHome() {
                 {/* MESSAGES */}
 
                 <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={3}
+                    size={{
+                        xs: 12,
+                        sm: 6,
+                        lg: 3,
+                    }}
                 >
 
                     <StatsCard
@@ -120,10 +139,11 @@ export default function DashboardHome() {
                 {/* PROGRAMS */}
 
                 <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={3}
+                    size={{
+                        xs: 12,
+                        sm: 6,
+                        lg: 3,
+                    }}
                 >
 
                     <StatsCard
@@ -152,17 +172,18 @@ export default function DashboardHome() {
                 }}
 
                 sx={{
-                    mt: 1,
+                    mt: 3,
                 }}
             >
 
                 {/* RECENT ACTIVITY */}
 
                 <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    lg={4}
+                    size={{
+                        xs: 12,
+                        sm: 6,
+                        lg: 4,
+                    }}
                 >
 
                     <RecentActivity />
@@ -174,10 +195,11 @@ export default function DashboardHome() {
                 {/* MESSAGES PREVIEW */}
 
                 <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    lg={4}
+                    size={{
+                        xs: 12,
+                        sm: 6,
+                        lg: 4,
+                    }}
                 >
 
                     <MessagesPreview />
@@ -189,10 +211,11 @@ export default function DashboardHome() {
                 {/* COMMENTS PREVIEW */}
 
                 <Grid
-                    item
-                    xs={12}
-                    md={12}
-                    lg={4}
+                    size={{
+                        xs: 12,
+                        sm: 6,
+                        lg: 4,
+                    }}
                 >
 
                     <CommentsPreview />
@@ -201,7 +224,52 @@ export default function DashboardHome() {
 
             </Grid>
 
-        </>
+            {/* LOWER DASHBOARD SECTION */}
+
+            <Grid
+                container
+
+                spacing={{
+                    xs: 2,
+                    md: 3,
+                }}
+
+                sx={{
+                    mt: 4,
+                }}
+            >
+
+                {/* PROGRAM OVERVIEW */}
+
+                <Grid
+                    size={{
+                        xs: 12,
+                        lg: 7,
+                    }}
+                >
+
+                    <ProgramOverview />
+
+                </Grid>
+
+
+
+                {/* ENGAGEMENT OVERVIEW */}
+
+                <Grid
+                    size={{
+                        xs: 12,
+                        lg: 5,
+                    }}
+                >
+
+                    <EngagementOverview />
+
+                </Grid>
+
+            </Grid>
+
+        </Box>
 
     );
 }

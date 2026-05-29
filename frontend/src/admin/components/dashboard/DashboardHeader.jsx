@@ -15,26 +15,12 @@ export default function DashboardHeader() {
 
     return (
 
-        <Stack
-            direction={{
-                xs: "column",
-                md: "row",
-            }}
-
-            justifyContent="space-between"
-
-            alignItems={{
-                xs: "flex-start",
-                md: "center",
-            }}
-
-            spacing={{
-                xs: 3,
-                md: 0,
-            }}
-
+        <Box
             sx={{
-                mb: 4,
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                mb: 6,
             }}
         >
 
@@ -63,7 +49,7 @@ export default function DashboardHeader() {
                         // for stronger visual hierarchy
                     }}
                 >
-                    Welcome back, Brian 👋
+                    Welcome back, Brian
                 </Typography>
 
 
@@ -90,49 +76,55 @@ export default function DashboardHeader() {
 
 
             {/* RIGHT SIDE */}
-
-            <Button
-
-                startIcon={
-                    <CalendarDays size={18} />
-                }
-
+            <Box
                 sx={{
-
-                    borderRadius: "16px",
-
-                    px: 2.5,
-
-                    py: 1.2,
-
-                    textTransform: "none",
-
-                    backgroundColor: "white",
-
-                    color: "#111827",
-
-                    border:
-                        "1px solid rgba(0,0,0,0.06)",
-
-                    boxShadow:
-                        "0 10px 30px rgba(0,0,0,0.04)",
-
-                    fontWeight: 600,
-
-                    "&:hover": {
-
-                        backgroundColor:
-                            "rgba(76,175,80,0.06)",
-                    },
-
-                    // Manipulation point:
-                    // increase borderRadius
-                    // for softer premium feel
+                    ml: "auto",
                 }}
             >
-                This Week
-            </Button>
+                <Button
 
-        </Stack>
+                    startIcon={
+                        <CalendarDays size={18} />
+                    }
+
+                    sx={{
+
+                        borderRadius: "16px",
+
+                        px: 2.5,
+
+                        py: 1.2,
+
+                        textTransform: "none",
+
+                        backgroundColor: "white",
+
+                        color: "#111827",
+
+                        border:
+                            "1px solid rgba(0,0,0,0.06)",
+
+                        boxShadow:
+                            "0 10px 30px rgba(0,0,0,0.04)",
+
+                        fontWeight: 600,
+
+                        "&:hover": {
+
+                            backgroundColor:
+                                "rgba(76,175,80,0.06)",
+                        },
+
+                        // Manipulation point:
+                        // increase borderRadius
+                        // for softer premium feel
+                    }}
+                >
+                    Calendar
+                </Button>
+            </Box>
+
+
+        </Box>
     );
 }

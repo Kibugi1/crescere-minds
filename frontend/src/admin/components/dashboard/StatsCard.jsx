@@ -23,9 +23,12 @@ export default function StatsCard({
 
                 borderRadius: "28px",
 
-                p: 3,
+                p: 4,
 
-                minHeight: 180,
+                height: "100%",
+                width: "100%",
+
+                minHeight: 240,
 
                 display: "flex",
 
@@ -45,7 +48,7 @@ export default function StatsCard({
                 "&:hover": {
 
                     transform:
-                        "translateY(-4px)",
+                        "translateY(-20px)",
 
                     boxShadow:
                         "0 18px 50px rgba(0,0,0,0.08)",
@@ -65,6 +68,7 @@ export default function StatsCard({
                 justifyContent="space-between"
 
                 alignItems="center"
+
             >
 
                 <Typography
