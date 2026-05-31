@@ -103,6 +103,7 @@ export default function ProgramOverview() {
 
                 sx={{
                     mb: 3,
+                    width: "100%",
                 }}
             >
 
@@ -123,7 +124,7 @@ export default function ProgramOverview() {
 
                 <Typography
                     sx={{
-
+                        ml: "auto",
                         color: "#2E7D32",
 
                         fontWeight: 700,

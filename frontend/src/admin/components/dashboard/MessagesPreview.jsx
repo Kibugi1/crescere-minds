@@ -93,6 +93,8 @@ export default function MessagesPreview() {
                         fontWeight: 700,
 
                         cursor: "pointer",
+
+                        ml: "auto",
                     }}
                 >
                     Inbox
@@ -147,7 +149,7 @@ export default function MessagesPreview() {
                         >
 
                             <Stack
-                                direction="row"
+                                direction="column"
 
                                 justifyContent="space-between"
 
@@ -173,6 +175,8 @@ export default function MessagesPreview() {
                                         color: "#9CA3AF",
 
                                         fontSize: "0.82rem",
+
+
                                     }}
                                 >
                                     {msg.time}

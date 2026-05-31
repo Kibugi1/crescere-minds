@@ -68,6 +68,9 @@ export default function StatsCard({
                 justifyContent="space-between"
 
                 alignItems="center"
+                sx={{
+                    width: "100%",
+                }}
 
             >
 
@@ -99,6 +102,8 @@ export default function StatsCard({
                             "rgba(76,175,80,0.10)",
 
                         display: "flex",
+
+                        ml: "auto",
 
                         alignItems: "center",
 

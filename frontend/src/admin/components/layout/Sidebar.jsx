@@ -12,7 +12,10 @@ import {
     Settings,
     UserCircle2,
     ChevronDown,
+    ChevronUp,
 } from "lucide-react";
+
+import Collapse from "@mui/material/Collapse";
 
 import {
     Badge,
@@ -27,7 +30,7 @@ import {
     NavLink,
 } from "react-router-dom";
 
-
+import { useState } from "react";
 
 const mainLinks = [
 
@@ -41,7 +44,28 @@ const mainLinks = [
         label: "Blogs",
         icon: <FileText size={20} />,
         path: "/admin/blogs",
-        dropdown: true,
+
+        children: [
+            {
+                label: "All Blogs",
+                path: "/admin/blogs",
+            },
+
+            {
+                label: "Create Blog",
+                path: "/admin/blogs/create",
+            },
+
+            {
+                label: "Categories",
+                path: "/admin/blogs/categories",
+            },
+
+            {
+                label: "Drafts",
+                path: "/admin/blogs/drafts",
+            },
+        ],
     },
 
     {
@@ -124,7 +148,14 @@ const settingsLinks = [
 
 
 export default function Sidebar() {
+    const [blogOpen, setBlogOpen] = useState(false);
 
+    const toggleMenu = (label) => {
+        setBlogOpen((prev) => ({
+            ...prev,
+            [label]: !prev[label],
+        }));
+    };
     return (
 
         <Box
@@ -243,109 +274,137 @@ export default function Sidebar() {
 
                     {mainLinks.map((item) => (
 
-                        <Button
+                        <Box key={item.label}>
 
-                            key={item.label}
+                            <Button
 
-                            component={NavLink}
+                                onClick={() => {
+                                    if (item.children) {
+                                        toggleMenu();
+                                    }
+                                }}
 
-                            to={item.path}
+                                component={
+                                    item.children
+                                        ? "button"
+                                        : NavLink
+                                }
 
-                            sx={{
+                                to={
+                                    item.children
+                                        ? undefined
+                                        : item.path
+                                }
 
-                                justifyContent: "space-between",
-
-                                px: 2,
-
-                                py: 1.7,
-
-                                borderRadius: "20px",
-
-                                textTransform: "none",
-
-                                color: "#374151",
-
-                                fontWeight: 600,
-
-                                transition:
-                                    "all 0.3s ease",
-
-                                "&.active": {
-
-                                    backgroundColor:
-                                        "rgba(76,175,80,0.10)",
-
-                                    color: "#2E7D32",
-                                },
-
-                                "&:hover": {
-
-                                    backgroundColor:
-                                        "rgba(76,175,80,0.06)",
-                                },
-
-                                // Manipulation point:
-                                // increase borderRadius
-                                // for softer nav feel
-                            }}
-                        >
-
-                            <Stack
-                                direction="row"
-
-                                spacing={1.5}
-
-                                alignItems="center"
+                                sx={{
+                                    justifyContent: "space-between",
+                                    px: 2,
+                                    py: 1.7,
+                                    borderRadius: "20px",
+                                    textTransform: "none",
+                                    color: "#374151",
+                                    fontWeight: 600,
+                                }}
                             >
 
-                                {item.icon}
-
-                                <Typography
-                                    sx={{
-                                        fontWeight: 600,
-                                    }}
+                                <Stack
+                                    direction="row"
+                                    spacing={1.5}
+                                    alignItems="center"
                                 >
-                                    {item.label}
-                                </Typography>
+                                    {item.icon}
 
-                            </Stack>
+                                    <Typography
+                                        sx={{
+                                            fontWeight: 600,
+                                        }}
+                                    >
+                                        {item.label}
+                                    </Typography>
 
+                                </Stack>
 
+                                <Stack
+                                    direction="row"
+                                    spacing={1}
+                                    alignItems="center"
+                                >
 
-                            <Stack
-                                direction="row"
+                                    {item.badge && (
+                                        <Badge
+                                            badgeContent={item.badge}
+                                            color="success"
+                                        />
+                                    )}
 
-                                spacing={1}
+                                    {item.children && (
+                                        blogOpen
+                                            ? <ChevronUp size={18} />
+                                            : <ChevronDown size={18} />
+                                    )}
 
-                                alignItems="center"
-                            >
+                                </Stack>
 
-                                {item.badge && (
+                            </Button>
 
-                                    <Badge
-                                        badgeContent={item.badge}
+                            {item.children && (
 
-                                        color="success"
-                                    />
-                                )}
+                                <Collapse
+                                    in={blogOpen}
+                                    timeout="auto"
+                                    unmountOnExit
+                                >
 
+                                    <Stack
+                                        spacing={0.5}
+                                        sx={{
+                                            pl: 5,
+                                            mt: 1,
+                                        }}
+                                    >
 
+                                        {item.children.map((child) => (
 
-                                {item.dropdown && (
+                                            <Button
+                                                key={child.label}
 
-                                    <ChevronDown
-                                        size={18}
-                                    />
-                                )}
+                                                component={NavLink}
 
-                            </Stack>
+                                                to={child.path}
 
-                        </Button>
+                                                sx={{
+                                                    justifyContent: "flex-start",
+
+                                                    textTransform: "none",
+
+                                                    color: "#6B7280",
+
+                                                    py: 1,
+
+                                                    borderRadius: "12px",
+
+                                                    "&:hover": {
+                                                        backgroundColor:
+                                                            "rgba(76,175,80,0.06)",
+                                                    },
+                                                }}
+                                            >
+                                                {child.label}
+                                            </Button>
+
+                                        ))}
+
+                                    </Stack>
+
+                                </Collapse>
+
+                            )}
+
+                        </Box>
 
                     ))}
 
                 </Stack>
-
 
 
                 <Divider
@@ -703,6 +762,6 @@ export default function Sidebar() {
 
             </Box>
 
-        </Box>
+        </Box >
     );
 }

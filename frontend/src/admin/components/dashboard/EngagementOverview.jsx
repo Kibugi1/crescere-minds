@@ -95,6 +95,7 @@ export default function EngagementOverview() {
 
                 sx={{
                     mb: 3,
+                    width: "100%",
                 }}
             >
 
@@ -126,6 +127,8 @@ export default function EngagementOverview() {
                             "rgba(0,0,0,0.02)",
 
                         minWidth: 120,
+
+                        ml: "auto",
 
                         ".MuiOutlinedInput-notchedOutline":
                         {
@@ -168,13 +171,15 @@ export default function EngagementOverview() {
             <Stack
                 direction="row"
 
-                spacing={1.5}
+                justifyContent="space-between"
 
                 alignItems="center"
 
                 sx={{
                     mb: 3,
+                    width: "100%",
                 }}
+
             >
 
                 <Typography
@@ -196,10 +201,10 @@ export default function EngagementOverview() {
                 </Typography>
 
 
-
                 <Typography
                     sx={{
                         color: "#6B7280",
+                        ml: "auto",
                     }}
                 >
                     Total Engagements
@@ -220,17 +225,18 @@ export default function EngagementOverview() {
                     ▲ 18%
                 </Typography>
 
-            </Stack>
+            </Stack >
 
 
 
             {/* CHART */}
 
-            <Box
+            < Box
                 sx={{
                     flex: 1,
                     minHeight: 280,
-                }}
+                }
+                }
             >
 
                 <Box
@@ -350,7 +356,7 @@ export default function EngagementOverview() {
             </ResponsiveContainer>
                 */}
 
-            </Box>
+            </Box >
 
         </Box >
     );

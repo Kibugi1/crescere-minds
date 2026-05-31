@@ -96,6 +96,8 @@ export default function RecentActivity() {
                         fontWeight: 700,
 
                         cursor: "pointer",
+
+                        ml: "auto",
                     }}
                 >
                     View All

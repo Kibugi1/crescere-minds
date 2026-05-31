@@ -81,6 +81,8 @@ export default function CommentsPreview() {
                         fontSize: "1.3rem",
 
                         color: "#111827",
+
+
                     }}
                 >
                     Comments Preview
@@ -96,6 +98,8 @@ export default function CommentsPreview() {
                         fontWeight: 700,
 
                         cursor: "pointer",
+
+                        ml: "auto",
                     }}
                 >
                     View all
@@ -150,7 +154,7 @@ export default function CommentsPreview() {
                         >
 
                             <Stack
-                                direction="row"
+                                direction="Column"
 
                                 justifyContent="space-between"
 
@@ -176,6 +180,7 @@ export default function CommentsPreview() {
                                         color: "#9CA3AF",
 
                                         fontSize: "0.82rem",
+
                                     }}
                                 >
                                     {comment.time}
