@@ -148,13 +148,13 @@ const settingsLinks = [
 
 
 export default function Sidebar() {
-    const [blogOpen, setBlogOpen] = useState(false);
+    const [openMenu, setOpenMenu] = useState(null);
 
     const toggleMenu = (label) => {
-        setBlogOpen((prev) => ({
-            ...prev,
-            [label]: !prev[label],
-        }));
+        setOpenMenu(
+            openMenu === label ? null : label
+        );
+
     };
     return (
 
@@ -280,7 +280,7 @@ export default function Sidebar() {
 
                                 onClick={() => {
                                     if (item.children) {
-                                        toggleMenu();
+                                        toggleMenu(item.label);
                                     }
                                 }}
 
@@ -338,7 +338,7 @@ export default function Sidebar() {
                                     )}
 
                                     {item.children && (
-                                        blogOpen
+                                        openMenu === item.label
                                             ? <ChevronUp size={18} />
                                             : <ChevronDown size={18} />
                                     )}
@@ -350,7 +350,7 @@ export default function Sidebar() {
                             {item.children && (
 
                                 <Collapse
-                                    in={blogOpen}
+                                    in={openMenu === item.label}
                                     timeout="auto"
                                     unmountOnExit
                                 >
