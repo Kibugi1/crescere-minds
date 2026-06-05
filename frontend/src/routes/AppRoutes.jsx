@@ -13,7 +13,17 @@ import AdminLayout from
 import DashboardHome from
     "../admin/pages/DashboardHome";
 
+import BlogsPage from "../admin/pages/blogs/BlogsPage";
+
+import CreateBlogPage from
+    "../admin/pages/blogs/CreateBlogPage";
+
+import CategoriesPage from
+    "../admin/pages/blogs/CategoriesPage";
+
 import ScrollToTop from "../components/layout/ScrollToTop";
+
+import DraftsPage from "../admin/pages/blogs/DraftsPage";
 
 export default function AppRoutes() {
     return (
@@ -43,6 +53,26 @@ export default function AppRoutes() {
                     <Route
                         path="dashboard"
                         element={<DashboardHome />}
+                    />
+
+                    <Route
+                        path="blogs"
+                        element={<BlogsPage />}
+                    />
+
+                    <Route
+                        path="blogs/create"
+                        element={<CreateBlogPage />}
+                    />
+
+                    <Route
+                        path="blogs/categories"
+                        element={<CategoriesPage />}
+                    />
+
+                    <Route
+                        path="blogs/drafts"
+                        element={<DraftsPage />}
                     />
                 </Route>
 
