@@ -13,44 +13,25 @@ import {
 } from "lucide-react";
 
 const drafts = [
-
     {
         id: 1,
-
-        title:
-            "Managing Stress in University",
-
-        category:
-            "Mental Wellness",
-
-        edited:
-            "2 hours ago",
+        title: "Managing Stress in University",
+        category: "Mental Wellness",
+        edited: "2 hours ago",
     },
 
     {
         id: 2,
-
-        title:
-            "Understanding Teen Anxiety",
-
-        category:
-            "Teen Wellness",
-
-        edited:
-            "Yesterday",
+        title: "Understanding Teen Anxiety",
+        category: "Teen Wellness",
+        edited: "Yesterday",
     },
 
     {
         id: 3,
-
-        title:
-            "Healthy Sleep Habits",
-
-        category:
-            "Self Care",
-
-        edited:
-            "3 days ago",
+        title: "Healthy Sleep Habits",
+        category: "Self Care",
+        edited: "3 days ago",
     },
 ];
 
@@ -75,34 +56,122 @@ export default function DraftsTable() {
             }}
         >
 
+            {/* TABLE HEADER */}
+
+            <Box
+                sx={{
+
+                    display: "grid",
+
+                    gridTemplateColumns:
+                        "minmax(250px, 3fr) minmax(150px, 1.5fr) 120px 150px 350px",
+
+                    gap: 3,
+
+                    alignItems: "center",
+
+                    pb: 2,
+
+                    borderBottom:
+                        "1px solid rgba(0,0,0,0.08)",
+
+                    mb: 1,
+                }}
+            >
+
+                <Typography fontWeight={700}>
+                    Title
+                </Typography>
+
+                <Typography
+                    fontWeight={700}
+                    sx={{
+                        display: {
+                            xs: "none",
+                            lg: "block",
+                        },
+                    }}
+                >
+                    Category
+                </Typography>
+
+                <Typography
+                    fontWeight={700}
+                    sx={{
+                        display: {
+                            xs: "none",
+                            lg: "block",
+                        },
+                    }}
+                >
+                    Status
+                </Typography>
+
+                <Typography
+                    fontWeight={700}
+                    sx={{
+                        display: {
+                            xs: "none",
+                            lg: "block",
+                        },
+                    }}
+                >
+                    Last Edited
+                </Typography>
+
+                <Typography
+                    fontWeight={700}
+                    sx={{
+                        display: {
+                            xs: "none",
+                            lg: "block",
+                        },
+                    }}
+                >
+                    Actions
+                </Typography>
+
+            </Box>
+
+
+
+            {/* DRAFT ROWS */}
+
             {drafts.map((draft) => (
 
-                <Stack
+                <Box
 
                     key={draft.id}
 
-                    direction="row"
-
-                    justifyContent="space-between"
-
-                    alignItems="center"
-
                     sx={{
+
+                        display: "grid",
+
+                        gridTemplateColumns:
+                            "minmax(250px, 3fr) minmax(150px, 1.5fr) 120px 150px 350px",
+
+                        gap: 3,
+
+                        alignItems: "center",
 
                         py: 2,
 
                         borderBottom:
                             "1px solid rgba(0,0,0,0.06)",
-                        width: "100%",
-                        flexGrow: 1,
                     }}
                 >
+
+                    {/* TITLE */}
 
                     <Typography
                         fontWeight={700}
                     >
                         {draft.title}
                     </Typography>
+
+
+
+                    {/* CATEGORY */}
 
                     <Typography
                         sx={{
@@ -113,87 +182,125 @@ export default function DraftsTable() {
                     </Typography>
 
 
-                    <Box>
-                        <Stack
-                            direction="row"
-                            spacing={2}
 
-                            alignItems="center"
+                    {/* STATUS */}
+
+                    <Chip
+
+                        label="Draft"
+
+                        sx={{
+
+                            width: "fit-content",
+
+                            backgroundColor:
+                                "rgba(245,158,11,0.15)",
+
+                            color: "#B45309",
+
+                            fontWeight: 700,
+                        }}
+                    />
+
+
+
+                    {/* LAST EDITED */}
+
+                    <Typography
+                        sx={{
+
+                            color: "#6B7280",
+
+                            textTransform:
+                                "capitalize",
+                        }}
+                    >
+                        {draft.edited}
+                    </Typography>
+
+
+
+                    {/* ACTIONS */}
+
+                    <Stack
+
+                        direction="row"
+
+                        spacing={1}
+
+                        flexWrap="wrap"
+                    >
+
+                        <Button
+
+                            startIcon={
+                                <Pencil size={16} />
+                            }
+
+                            sx={{
+
+                                textTransform:
+                                    "none",
+
+                                minWidth:
+                                    "auto",
+                            }}
                         >
+                            Edit
+                        </Button>
 
-                            <Chip
 
-                                label="Draft"
 
-                                sx={{
+                        <Button
 
-                                    backgroundColor:
-                                        "rgba(245,158,11,0.15)",
+                            startIcon={
+                                <Upload size={16} />
+                            }
 
-                                    color: "#B45309",
+                            color="success"
 
-                                    fontWeight: 700,
-                                }}
-                            />
+                            sx={{
 
-                            <Typography
-                                sx={{
-                                    color: "#6B7280",
-                                }}
-                            >
-                                {draft.edited}
-                            </Typography>
+                                textTransform:
+                                    "none",
 
-                            <Button
+                                minWidth:
+                                    "auto",
+                            }}
+                        >
+                            Publish
+                        </Button>
 
-                                startIcon={
-                                    <Pencil size={16} />
-                                }
 
-                                sx={{
-                                    textTransform: "none",
-                                }}
-                            >
-                                Edit
-                            </Button>
 
-                            <Button
+                        <Button
 
-                                startIcon={
-                                    <Upload size={16} />
-                                }
+                            startIcon={
+                                <Trash2 size={16} />
+                            }
 
-                                color="success"
+                            color="error"
 
-                                sx={{
-                                    textTransform: "none",
-                                }}
-                            >
-                                Publish
-                            </Button>
+                            sx={{
 
-                            <Button
+                                textTransform:
+                                    "none",
 
-                                startIcon={
-                                    <Trash2 size={16} />
-                                }
+                                minWidth:
+                                    "auto",
+                            }}
+                        >
+                            Delete
+                        </Button>
 
-                                color="error"
+                    </Stack>
 
-                                sx={{
-                                    textTransform: "none",
-                                }}
-                            >
-                                Delete
-                            </Button>
+                </Box>
 
-                        </Stack>
-                    </Box>
+            ))
+            }
 
-                </Stack>
+        </Box >
 
-            ))}
-
-        </Box>
     );
 }

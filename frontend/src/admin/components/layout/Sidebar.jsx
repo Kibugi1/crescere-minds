@@ -77,7 +77,7 @@ const mainLinks = [
     {
         label: "Inbox / Messages",
         icon: <Mail size={20} />,
-        path: "/admin/inbox",
+        path: "/admin/messages",
         badge: 8,
     },
 
@@ -85,6 +85,18 @@ const mainLinks = [
         label: "Programs",
         icon: <BookOpen size={20} />,
         path: "/admin/programs",
+
+        children: [
+            {
+                label: "All Programs",
+                path: "/admin/programs",
+            },
+
+            {
+                label: "Create Program",
+                path: "/admin/programs/create",
+            }
+        ],
     },
 ];
 
@@ -326,7 +338,7 @@ export default function Sidebar() {
 
                                 <Stack
                                     direction="row"
-                                    spacing={1}
+                                    spacing={1.5}
                                     alignItems="center"
                                 >
 

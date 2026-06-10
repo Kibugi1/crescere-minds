@@ -25,6 +25,14 @@ import ScrollToTop from "../components/layout/ScrollToTop";
 
 import DraftsPage from "../admin/pages/blogs/DraftsPage";
 
+import ProgramsPage from "../admin/pages/programs/ProgramsPage";
+
+import CreateProgramPage from "../admin/pages/programs/CreateProgramPage";
+
+import MessagesPage from "../admin/pages/messages/MessagesPage";
+
+import CommentsPage from "../admin/pages/comments/CommentsPage";
+
 export default function AppRoutes() {
     return (
         <BrowserRouter>
@@ -74,6 +82,27 @@ export default function AppRoutes() {
                         path="blogs/drafts"
                         element={<DraftsPage />}
                     />
+
+                    <Route
+                        path="programs"
+                        element={<ProgramsPage />}
+                    />
+
+                    <Route
+                        path="programs/create"
+                        element={<CreateProgramPage />}
+                    />
+
+                    <Route
+                        path="messages"
+                        element={<MessagesPage />}
+                    />
+
+                    <Route
+                        path="comments"
+                        element={<CommentsPage />}
+                    />
+
                 </Route>
 
             </Routes>
