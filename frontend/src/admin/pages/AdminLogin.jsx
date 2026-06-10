@@ -47,6 +47,23 @@ export default function AdminLogin() {
 
             console.log(response.data);
 
+            localStorage.setItem(
+                "token",
+                response.data.token
+            );
+
+            localStorage.setItem(
+                "admin",
+
+                JSON.stringify(
+                    response.data.admin
+                )
+            );
+
+            navigate(
+                "/admin/dashboard"
+            );
+
         }
 
         catch (err) {
