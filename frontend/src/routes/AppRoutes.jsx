@@ -33,6 +33,8 @@ import MessagesPage from "../admin/pages/messages/MessagesPage";
 
 import CommentsPage from "../admin/pages/comments/CommentsPage";
 
+import AdminLogin from "../admin/pages/AdminLogin";
+
 export default function AppRoutes() {
     return (
         <BrowserRouter>
@@ -50,6 +52,11 @@ export default function AppRoutes() {
                 <Route path="/blog" element={<Blog />} />
 
                 <Route path="/contact" element={<Contact />} />
+
+                <Route
+                    path="/admin/login"
+                    element={<AdminLogin />}
+                />
 
                 {/* ADMIN ROUTES */}
 
