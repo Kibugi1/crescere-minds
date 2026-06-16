@@ -4,7 +4,7 @@ import {
     Stack,
 } from "@mui/material";
 
-export default function BlogActions({ onPublish, onSaveDraft }) {
+export default function BlogActions({ onPublish, onSaveDraft, publishLoading, draftLoading }) {
 
     return (
 
@@ -36,6 +36,7 @@ export default function BlogActions({ onPublish, onSaveDraft }) {
                         fontWeight: 600,
                     }}
                     onClick={onSaveDraft}
+                    disabled={draftLoading}
                 >
                     Save Draft
                 </Button>
@@ -68,8 +69,19 @@ export default function BlogActions({ onPublish, onSaveDraft }) {
                         },
                     }}
                     onClick={onPublish}
+                    disabled={
+                        publishLoading
+                    }
                 >
-                    Publish Blog
+                    {
+
+                        publishLoading
+
+                            ? "Publishing..."
+
+                            : "Publish"
+
+                    }
                 </Button>
 
             </Stack>

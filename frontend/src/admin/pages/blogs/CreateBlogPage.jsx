@@ -15,12 +15,19 @@ import FeaturedImageUpload from
 
 import { useState } from "react";
 
+import axios from "axios";
+
 export default function CreateBlogPage() {
     const [title, setTitle] = useState("");
     const [excerpt, setExcerpt] = useState("");
     const [category, setCategory] = useState("");
     const [content, setContent] = useState("");
     const [featuredImage, setFeaturedImage] = useState(null);
+
+    const [publishLoading,
+        setPublishLoading] = useState(false);
+
+    const [draftLoading, setDraftLoading] = useState(false);
 
     const buildBlogFormData = (
         status
@@ -68,33 +75,75 @@ export default function CreateBlogPage() {
     };
 
     const handlePublish =
-        () => {
+        async () => {
 
-            const formData =
-                buildBlogFormData(
-                    "published"
+            try {
+
+                setPublishLoading(
+                    true
                 );
 
-            console.log(
-                "PUBLISH"
-            );
+                const token =
+                    localStorage.getItem(
+                        "token"
+                    );
 
-            for (
+                const formData =
 
-                const [
-                    key,
-                    value,
-                ]
+                    buildBlogFormData(
 
-                of
+                        "published"
+                    );
 
-                formData.entries()
+                const response =
 
-            ) {
+                    await axios.post(
+
+                        "http://127.0.0.1:5000/api/blogs/create",
+
+                        formData,
+
+                        {
+
+                            headers: {
+
+                                Authorization: `Bearer ${token}`,
+
+                                "Content-Type": "multipart/form-data",
+                            },
+                        }
+                    );
 
                 console.log(
-                    key,
-                    value
+
+                    response.data
+                );
+
+                alert(
+
+                    "Blog published successfully!"
+                );
+
+            } catch (error) {
+
+                console.error(
+
+                    error.response?.data ||
+
+                    error
+                );
+
+                alert(
+
+                    error.response?.data?.message ||
+
+                    "Failed to publish blog."
+                );
+
+            } finally {
+
+                setPublishLoading(
+                    false
                 );
             }
         };
@@ -163,6 +212,8 @@ export default function CreateBlogPage() {
             <BlogActions
                 onPublish={handlePublish}
                 onSaveDraft={handleSaveDraft}
+                publishLoading={publishLoading}
+                draftLoading={draftLoading}
             />
 
         </>

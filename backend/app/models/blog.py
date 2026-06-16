@@ -15,6 +15,11 @@ class Blog(db.Model):
         db.String(255),
         nullable=False
     )
+    
+    excerpt = db.Column(
+        db.Text,
+        nullable=False
+    )
 
     content = db.Column(
         db.Text,
@@ -34,6 +39,12 @@ class Blog(db.Model):
     created_at = db.Column(
         db.DateTime,
         default=lambda: datetime.now(timezone.utc)
+    )
+    
+    status = db.Column(
+        db.String(50),
+        nullable=False,
+        default="draft"
     )
 
     admin_id = db.Column(

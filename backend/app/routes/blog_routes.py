@@ -1,7 +1,8 @@
 from flask import Blueprint, request
 from flask_jwt_extended import (
     jwt_required,
-    get_jwt
+    get_jwt,
+    get_jwt_identity
 )
 from flask import jsonify
 
@@ -31,19 +32,21 @@ def create_blog():
             "message": "Admins only"
         }, 403
 
-    data = request.get_json()
-
-    title = data.get("title")
-    content = data.get("content")
-    category = data.get("category")
-    image = data.get("image")
+    title = request.form.get("title"),
+    excerpt = request.form.get("excerpt"),
+    content = request.form.get("content"),
+    category = request.form.get("category"),
+    status = request.form.get("status"),
+    image = request.files.get("image")
 
     new_blog = Blog(
         title=title,
+        excerpt=excerpt,
         content=content,
         category=category,
-        image=image,
-        admin_id=1
+        status=status,
+        image=None,
+        admin_id=get_jwt_identity(),
     )
 
     db.session.add(new_blog)
