@@ -1,7 +1,7 @@
 import {
     Bell,
     Mail,
-    Menu,
+    Menu as MenuIcon,
     Search,
     ChevronDown,
 } from "lucide-react";
@@ -14,11 +14,68 @@ import {
     InputBase,
     Stack,
     Typography,
+    Menu,
+    MenuItem,
 } from "@mui/material";
+
+import {
+
+    useNavigate,
+
+} from "react-router-dom";
+
+import { useState } from "react";
 
 
 
 export default function Topbar() {
+    // Sidebar state
+    const [openMenu, setOpenMenu] =
+        useState(null);
+
+    // Topbar profile state
+    const [anchorEl, setAnchorEl] =
+        useState(null);
+
+    const navigate = useNavigate();
+
+    const toggleMenu = (label) => {
+
+        setOpenMenu(
+
+            openMenu === label
+                ? null
+                : label
+        );
+    };
+
+    const handleMenuOpen = (event) => {
+
+        setAnchorEl(
+            event.currentTarget
+        );
+    };
+
+    const handleMenuClose = () => {
+
+        setAnchorEl(null);
+    };
+
+    const handleLogout = () => {
+
+        localStorage.removeItem(
+            "token"
+        );
+
+        localStorage.removeItem(
+            "admin"
+        );
+
+        navigate(
+            "/admin/login"
+        );
+    };
+
 
     return (
 
@@ -376,6 +433,11 @@ export default function Topbar() {
 
 
                     <IconButton
+                        onClick={
+                            handleMenuOpen
+                        }
+
+
                         sx={{
 
                             display: {
@@ -390,11 +452,57 @@ export default function Topbar() {
                         <ChevronDown size={18} />
 
                     </IconButton>
+                    <Menu
+
+                        anchorEl={anchorEl}
+
+                        open={
+                            Boolean(anchorEl)
+                        }
+
+                        onClose={
+                            handleMenuClose
+                        }
+                    >
+
+                        <MenuItem
+
+                            onClick={() => {
+
+                                handleMenuClose();
+
+                                navigate(
+                                    "/admin/profile"
+                                );
+                            }}
+                        >
+
+                            Edit Profile
+
+                        </MenuItem>
+
+
+
+                        <MenuItem
+
+                            onClick={() => {
+
+                                handleMenuClose();
+
+                                handleLogout();
+                            }}
+                        >
+
+                            Logout
+
+                        </MenuItem>
+
+                    </Menu>
 
                 </Stack>
 
             </Stack>
 
-        </Box>
+        </Box >
     );
 }

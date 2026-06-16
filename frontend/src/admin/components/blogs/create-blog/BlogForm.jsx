@@ -6,7 +6,14 @@ import {
     Typography,
 } from "@mui/material";
 
-export default function BlogForm() {
+export default function BlogForm({ title,
+    setTitle,
+
+    excerpt,
+    setExcerpt,
+
+    category,
+    setCategory, }) {
 
     return (
 
@@ -46,7 +53,17 @@ export default function BlogForm() {
 
                     <TextField
                         fullWidth
+
                         placeholder="Enter blog title"
+
+                        value={title}
+
+                        onChange={(e) =>
+
+                            setTitle(
+                                e.target.value
+                            )
+                        }
                     />
 
                 </Box>
@@ -68,8 +85,17 @@ export default function BlogForm() {
 
                     <TextField
                         select
+
                         fullWidth
-                        defaultValue=""
+
+                        value={category}
+
+                        onChange={(e) =>
+
+                            setCategory(
+                                e.target.value
+                            )
+                        }
                     >
 
                         <MenuItem value="">
@@ -96,30 +122,6 @@ export default function BlogForm() {
 
                 </Box>
 
-
-
-                {/* FEATURED IMAGE */}
-
-                <Box>
-
-                    <Typography
-                        sx={{
-                            mb: 1,
-                            fontWeight: 600,
-                        }}
-                    >
-                        Featured Image
-                    </Typography>
-
-                    <TextField
-                        type="file"
-                        fullWidth
-                    />
-
-                </Box>
-
-
-
                 {/* EXCERPT */}
 
                 <Box>
@@ -134,7 +136,6 @@ export default function BlogForm() {
                     </Typography>
 
                     <TextField
-
                         fullWidth
 
                         multiline
@@ -143,35 +144,15 @@ export default function BlogForm() {
 
                         placeholder="
 Provide a short summary..."
-                    />
 
-                </Box>
+                        value={excerpt}
 
+                        onChange={(e) =>
 
-
-                {/* CONTENT */}
-
-                <Box>
-
-                    <Typography
-                        sx={{
-                            mb: 1,
-                            fontWeight: 600,
-                        }}
-                    >
-                        Content
-                    </Typography>
-
-                    <TextField
-
-                        fullWidth
-
-                        multiline
-
-                        rows={12}
-
-                        placeholder="
-Write your blog content..."
+                            setExcerpt(
+                                e.target.value
+                            )
+                        }
                     />
 
                 </Box>

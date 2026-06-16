@@ -4,7 +4,7 @@ import {
     Stack,
 } from "@mui/material";
 
-export default function BlogActions() {
+export default function BlogActions({ onPublish, onSaveDraft }) {
 
     return (
 
@@ -35,6 +35,7 @@ export default function BlogActions() {
 
                         fontWeight: 600,
                     }}
+                    onClick={onSaveDraft}
                 >
                     Save Draft
                 </Button>
@@ -66,6 +67,7 @@ export default function BlogActions() {
                                 "#256428",
                         },
                     }}
+                    onClick={onPublish}
                 >
                     Publish Blog
                 </Button>

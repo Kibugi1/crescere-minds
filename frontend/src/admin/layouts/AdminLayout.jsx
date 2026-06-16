@@ -6,7 +6,6 @@ import Sidebar from "../components/layout/Sidebar";
 
 import Topbar from "../components/layout/Topbar";
 
-import DashboardHome from "../pages/DashboardHome";
 
 export default function AdminLayout() {
 

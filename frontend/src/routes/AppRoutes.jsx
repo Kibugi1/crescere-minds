@@ -35,6 +35,10 @@ import CommentsPage from "../admin/pages/comments/CommentsPage";
 
 import AdminLogin from "../admin/pages/AdminLogin";
 
+import ProtectedRoute from "../admin/auth/ProtectedRoute";
+
+import ProfilePage from "../admin/pages/profile/ProfilePage";
+
 export default function AppRoutes() {
     return (
         <BrowserRouter>
@@ -62,7 +66,11 @@ export default function AppRoutes() {
 
                 <Route
                     path="/admin"
-                    element={<AdminLayout />}
+                    element={
+                        <ProtectedRoute>
+                            <AdminLayout />
+                        </ProtectedRoute>
+                    }
                 >
 
                     <Route
@@ -108,6 +116,11 @@ export default function AppRoutes() {
                     <Route
                         path="comments"
                         element={<CommentsPage />}
+                    />
+
+                    <Route
+                        path="profile"
+                        element={<ProfilePage />}
                     />
 
                 </Route>
