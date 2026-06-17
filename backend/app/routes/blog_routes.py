@@ -67,9 +67,7 @@ def create_blog():
 @blog_bp.route("/", methods=["GET"])
 def get_blogs():
 
-    blogs = Blog.query.order_by(
-        status="published"
-    ).order_by(
+    blogs = Blog.query.order_by(Blog.status == "published").order_by(
         Blog.created_at.desc()
     ).all()
 
@@ -84,7 +82,7 @@ def get_blogs():
             "content": blog.content,
             "category": blog.category,
             "image": blog.image,
-            "created_at": blog.created_at.isoformat(),
+            "created_at": blog.created_at.strftime("%Y-%m-%d %H:%M:%S"),
             "status": blog.status,
             "admin_id": blog.admin_id
         })
@@ -112,7 +110,7 @@ def get_single_blog(id):
         "category": blog.category,
         "excerpt": blog.excerpt,
         "image": blog.image,
-        "created_at": blog.created_at.isoformat(),
+        "created_at": blog.created_at.strftime("%Y-%m-%d %H:%M:%S"),
         "status": blog.status,
         "admin_id": blog.admin_id
     }), 200

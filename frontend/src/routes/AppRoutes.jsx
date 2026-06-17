@@ -39,6 +39,8 @@ import ProtectedRoute from "../admin/auth/ProtectedRoute";
 
 import ProfilePage from "../admin/pages/profile/ProfilePage";
 
+import SingleBlog from "../pages/SingleBlog";
+
 export default function AppRoutes() {
     return (
         <BrowserRouter>
@@ -54,6 +56,8 @@ export default function AppRoutes() {
                 <Route path="/programs" element={<Programs />} />
 
                 <Route path="/blog" element={<Blog />} />
+
+                <Route path="/blog/:id" element={<SingleBlog />} />
 
                 <Route path="/contact" element={<Contact />} />
 
