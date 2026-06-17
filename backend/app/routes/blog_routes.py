@@ -68,6 +68,8 @@ def create_blog():
 def get_blogs():
 
     blogs = Blog.query.order_by(
+        status="published"
+    ).order_by(
         Blog.created_at.desc()
     ).all()
 
