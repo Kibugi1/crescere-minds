@@ -7,7 +7,10 @@ from app.models.admin_user import AdminUser
 app = create_app()
 
 with app.app_context():
-
+ existing_admin = AdminUser.query.filter_by(email="admin@crescere.com").first()
+ if existing_admin:
+     print("Admin already exists.")
+ else:
     admin = AdminUser(
         name="Brian",
         email="admin@crescere.com"

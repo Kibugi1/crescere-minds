@@ -32,11 +32,11 @@ def create_blog():
             "message": "Admins only"
         }, 403
 
-    title = request.form.get("title"),
-    excerpt = request.form.get("excerpt"),
-    content = request.form.get("content"),
-    category = request.form.get("category"),
-    status = request.form.get("status"),
+    title = request.form.get("title")
+    excerpt = request.form.get("excerpt")
+    content = request.form.get("content")
+    category = request.form.get("category")
+    status = request.form.get("status")
     image = request.files.get("image")
 
     new_blog = Blog(
@@ -78,10 +78,12 @@ def get_blogs():
         all_blogs.append({
             "id": blog.id,
             "title": blog.title,
+            "excerpt": blog.excerpt,
             "content": blog.content,
             "category": blog.category,
             "image": blog.image,
-            "created_at": blog.created_at,
+            "created_at": blog.created_at.isoformat(),
+            "status": blog.status,
             "admin_id": blog.admin_id
         })
 
@@ -106,8 +108,10 @@ def get_single_blog(id):
         "title": blog.title,
         "content": blog.content,
         "category": blog.category,
+        "excerpt": blog.excerpt,
         "image": blog.image,
-        "created_at": blog.created_at,
+        "created_at": blog.created_at.isoformat(),
+        "status": blog.status,
         "admin_id": blog.admin_id
     }), 200
 
@@ -136,28 +140,18 @@ def update_blog(id):
             "message": "Blog not found"
         }, 404
 
-    data = request.get_json()
-
-    blog.title = data.get(
-        "title",
-        blog.title
-    )
-
-    blog.content = data.get(
-        "content",
-        blog.content
-    )
-
-    blog.category = data.get(
-        "category",
-        blog.category
-    )
-
-    blog.image = data.get(
-        "image",
-        blog.image
-    )
-
+    title = request.form.get("title")
+    excerpt = request.form.get("excerpt")
+    content = request.form.get("content")
+    category = request.form.get("category")
+    status = request.form.get("status")
+    image = request.files.get("image")
+    blog.title = title
+    blog.excerpt = excerpt
+    blog.content = content
+    blog.category = category
+    blog.status = status
+    blog.image = image
     db.session.commit()
 
     return {
