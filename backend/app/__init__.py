@@ -7,6 +7,8 @@ from app.extensions.bcrypt import bcrypt
 from app.extensions.jwt import jwt
 from app.extensions.migrate import migrate
 
+import os
+
 def create_app():
 
     app = Flask(__name__)
@@ -15,6 +17,8 @@ def create_app():
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+
+    app.config["UPLOAD_FOLDER"] = os.path.join(os.getcwd(), "uploads")
     app.config["JWT_SECRET_KEY"] = "jwt-super-secret-key"
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 

@@ -7,45 +7,81 @@ import {
     Typography,
 } from "@mui/material";
 
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+import { Link, } from "react-router-dom";
+
 import {
     Edit3,
+    Trash2,
 } from "lucide-react";
 
-const blogs = [
 
-    {
-        id: 1,
-        title: "Managing Stress in Everyday Life",
-        category: "Mental Wellness",
-        status: "Published",
-        date: "12 Jun 2026",
-        image:
-            "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
-    },
-
-    {
-        id: 2,
-        title: "The Importance of Sleep",
-        category: "Self Care",
-        status: "Draft",
-        date: "10 Jun 2026",
-        image:
-            "https://images.unsplash.com/photo-1511296265581-c2450046447d",
-    },
-
-    {
-        id: 3,
-        title: "Helping Teens Navigate Anxiety",
-        category: "Teen Wellness",
-        status: "Published",
-        date: "08 Jun 2026",
-        image:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9",
-    },
-
-];
 
 export default function BlogTable() {
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+        fetchBlogs();
+    }, []);
+
+    const fetchBlogs = async () => {
+        try {
+            const response = await axios.get(
+                "http://127.0.0.1:5000/api/blogs"
+            );
+            setBlogs(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleDelete =
+        async (id) => {
+
+            const confirmed =
+                window.confirm(
+                    "Delete this blog?"
+                );
+
+            if (!confirmed) return;
+
+            try {
+
+                const token =
+                    localStorage.getItem(
+                        "token"
+                    );
+
+                await axios.delete(
+
+                    `http://127.0.0.1:5000/api/blogs/${id}`,
+
+                    {
+                        headers: {
+                            Authorization:
+                                `Bearer ${token}`,
+                        },
+                    }
+                );
+
+                setBlogs(
+
+                    blogs.filter(
+
+                        (blog) =>
+                            blog.id !== id
+                    )
+                );
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+            }
+        };
 
     return (
 
@@ -150,7 +186,11 @@ export default function BlogTable() {
 
                         <Avatar
 
-                            src={blog.image}
+                            src={
+                                blog.image
+                                    ? `http://127.0.0.1:5000/api/blogs/uploads/${blog.image}`
+                                    : ""
+                            }
 
                             variant="rounded"
 
@@ -199,7 +239,7 @@ export default function BlogTable() {
                             label={blog.status}
 
                             color={
-                                blog.status === "Published"
+                                blog.status === "published"
                                     ? "success"
                                     : "default"
                             }
@@ -216,7 +256,7 @@ export default function BlogTable() {
                     <Box sx={{ flex: 1 }}>
 
                         <Typography>
-                            {blog.date}
+                            {blog.created_at}
                         </Typography>
 
                     </Box>
@@ -229,17 +269,38 @@ export default function BlogTable() {
 
                         <Button
 
+                            component={Link}
+
+                            to={`/admin/blogs/edit/${blog.id}`}
+
                             startIcon={
                                 <Edit3 size={16} />
                             }
 
                             size="small"
-
-                            sx={{
-                                textTransform: "none",
-                            }}
                         >
                             Edit
+                        </Button>
+
+                        <Button
+
+                            color="error"
+
+                            startIcon={
+                                <Trash2 size={16} />
+                            }
+
+                            size="small"
+
+                            sx={{
+                                textTransform:
+                                    "none",
+                            }}
+                            onClick={() =>
+                                handleDelete(blog.id)
+                            }
+                        >
+                            Delete
                         </Button>
 
                     </Box>

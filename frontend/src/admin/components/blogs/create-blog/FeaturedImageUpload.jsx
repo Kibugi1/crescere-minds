@@ -16,6 +16,7 @@ import {
 export default function FeaturedImageUpload({
     image,
     setImage,
+    existingImage,
 }) {
 
     const fileInputRef =
@@ -106,15 +107,17 @@ export default function FeaturedImageUpload({
                     }}
                 >
 
-                    {image ? (
+                    {image || existingImage ? (
 
                         <Box
                             component="img"
 
                             src={
-                                URL.createObjectURL(
-                                    image
-                                )
+                                image
+                                    ? URL.createObjectURL(
+                                        image
+                                    )
+                                    : `http://127.0.0.1:5000/api/blogs/uploads/${existingImage}`
                             }
 
                             alt="Featured"

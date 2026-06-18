@@ -13,21 +13,71 @@ import BlogEditor from
 import FeaturedImageUpload from
     "../../components/blogs/create-blog/FeaturedImageUpload";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { useParams, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
-export default function CreateBlogPage() {
+export default function EditBlogPage() {
+    const { id } = useParams();
+    const navigate = useNavigate();
+
     const [title, setTitle] = useState("");
     const [excerpt, setExcerpt] = useState("");
     const [category, setCategory] = useState("");
     const [content, setContent] = useState("");
     const [featuredImage, setFeaturedImage] = useState(null);
+    const [existingImage, setExistingImage] = useState(null);
 
     const [publishLoading,
         setPublishLoading] = useState(false);
 
     const [draftLoading, setDraftLoading] = useState(false);
+
+    useEffect(() => { fetchBlog(); }, []);
+
+    const fetchBlog =
+        async () => {
+
+            try {
+
+                const response =
+                    await axios.get(
+
+                        `http://127.0.0.1:5000/api/blogs/${id}`
+                    );
+
+                const blog =
+                    response.data;
+
+                setTitle(
+                    blog.title
+                );
+
+                setExcerpt(
+                    blog.excerpt
+                );
+
+                setCategory(
+                    blog.category
+                );
+
+                setContent(
+                    blog.content
+                );
+
+                setExistingImage(
+                    blog.image
+                );
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+            }
+        };
 
     const buildBlogFormData = (
         status
@@ -96,18 +146,17 @@ export default function CreateBlogPage() {
                     );
 
                 const response =
-                    await axios.post(
+                    await axios.put(
 
-                        "http://127.0.0.1:5000/api/blogs/create",
-
+                        `http://127.0.0.1:5000/api/blogs/${id}`,
                         formData,
 
                         {
 
                             headers: {
 
-                                Authorization: `Bearer ${token}`,
-
+                                Authorization:
+                                    `Bearer ${token}`,
                                 "Content-Type": "multipart/form-data",
                             },
                         }
@@ -120,7 +169,11 @@ export default function CreateBlogPage() {
 
                 alert(
 
-                    "Blog published successfully!"
+                    "Blog Updated Successfully!"
+                );
+
+                navigate(
+                    "/admin/blogs"
                 );
 
             } catch (error) {
@@ -136,7 +189,7 @@ export default function CreateBlogPage() {
 
                     error.response?.data?.message ||
 
-                    "Failed to publish blog."
+                    "Failed to edit blog."
                 );
 
             } finally {
@@ -206,6 +259,7 @@ export default function CreateBlogPage() {
             <FeaturedImageUpload
                 image={featuredImage}
                 setImage={setFeaturedImage}
+                existingImage={existingImage}
             />
 
             <BlogActions

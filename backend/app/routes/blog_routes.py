@@ -1,4 +1,6 @@
-from flask import Blueprint, request
+from email.mime import image
+
+from flask import Blueprint, current_app, request
 from flask_jwt_extended import (
     jwt_required,
     get_jwt,
@@ -6,10 +8,16 @@ from flask_jwt_extended import (
 )
 from flask import jsonify
 
+from flask import current_app
+
 
 from app.extensions.db import db
 from app.models.blog import Blog
 
+import os
+from werkzeug.utils import secure_filename
+
+from flask import send_from_directory
 
 blog_bp = Blueprint(
     "blogs",
@@ -38,6 +46,18 @@ def create_blog():
     category = request.form.get("category")
     status = request.form.get("status")
     image = request.files.get("image")
+    print(request.files)
+    print(image)
+    image_filename = None
+
+    if image:
+
+      image_filename = secure_filename(
+        image.filename
+      )
+
+    image.save(os.path.join(current_app.config["UPLOAD_FOLDER"],
+                            image_filename))
 
     new_blog = Blog(
         title=title,
@@ -45,7 +65,7 @@ def create_blog():
         content=content,
         category=category,
         status=status,
-        image=None,
+        image=image_filename,
         admin_id=get_jwt_identity(),
     )
 
@@ -62,7 +82,23 @@ def create_blog():
         "category": new_blog.category
     }
 }, 201
-    
+
+@blog_bp.route(
+    "/uploads/<filename>"
+)
+def uploaded_file(filename):
+
+    return send_from_directory(
+
+        os.path.join(
+            os.getcwd(),
+            "uploads"
+        ),
+
+        filename
+    )
+
+
 # GET ALL BLOGS
 @blog_bp.route("/", methods=["GET"])
 def get_blogs():
@@ -145,13 +181,33 @@ def update_blog(id):
     content = request.form.get("content")
     category = request.form.get("category")
     status = request.form.get("status")
+    
     image = request.files.get("image")
+
+    image_filename = blog.image
+
+    if image:
+
+        image_filename = secure_filename(
+        image.filename
+    )
+
+    image.save(
+        os.path.join(
+            current_app.config[
+                "UPLOAD_FOLDER"
+            ],
+
+            image_filename
+        )
+    )
+    
     blog.title = title
     blog.excerpt = excerpt
     blog.content = content
     blog.category = category
     blog.status = status
-    blog.image = image
+    blog.image = image_filename
     db.session.commit()
 
     return {

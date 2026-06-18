@@ -42,12 +42,23 @@ export default function BlogCard({
             {/* IMAGE */}
 
             <Box
+                component="img"
+
+                src={
+                    blog.image
+                        ? `http://127.0.0.1:5000/api/blogs/uploads/${blog.image}`
+                        : ""
+                }
+
+                alt={blog.title}
+
                 sx={{
+
+                    width: "100%",
 
                     height: 240,
 
-                    backgroundColor:
-                        "#E8F5E9",
+                    objectFit: "cover",
                 }}
             />
 
@@ -110,7 +121,6 @@ export default function BlogCard({
 
 
                 <Button
-
                     component={
                         Link
                     }

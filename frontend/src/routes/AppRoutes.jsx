@@ -41,6 +41,8 @@ import ProfilePage from "../admin/pages/profile/ProfilePage";
 
 import SingleBlog from "../pages/SingleBlog";
 
+import EditBlogPage from "../admin/pages/blogs/EditBlogPage";
+
 export default function AppRoutes() {
     return (
         <BrowserRouter>
@@ -125,6 +127,13 @@ export default function AppRoutes() {
                     <Route
                         path="profile"
                         element={<ProfilePage />}
+                    />
+
+                    <Route
+                        path="blogs/edit/:id"
+                        element={
+                            <EditBlogPage />
+                        }
                     />
 
                 </Route>

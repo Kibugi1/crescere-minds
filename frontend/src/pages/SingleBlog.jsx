@@ -128,6 +128,10 @@ export default function SingleBlog() {
 
                     sx={{
                         mb: 3,
+                        mt: {
+                            xs: 4,
+                            lg: 8,
+                        },
                     }}
                 />
 
@@ -166,15 +170,27 @@ export default function SingleBlog() {
                 {/* IMAGE PLACEHOLDER */}
 
                 <Box
+
+                    component="img"
+
+                    src={
+                        blog.image
+                            ? `http://127.0.0.1:5000/api/blogs/uploads/${blog.image}`
+                            : ""
+                    }
+
+                    alt={blog.title}
+
                     sx={{
+
+                        width: "100%",
 
                         height: 400,
 
+                        objectFit: "cover",
+
                         borderRadius:
                             "24px",
-
-                        backgroundColor:
-                            "#E8F5E9",
 
                         mb: 5,
                     }}
