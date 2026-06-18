@@ -192,15 +192,7 @@ def update_blog(id):
         image.filename
     )
 
-    image.save(
-        os.path.join(
-            current_app.config[
-                "UPLOAD_FOLDER"
-            ],
-
-            image_filename
-        )
-    )
+    image.save(os.path.join(current_app.config[ "UPLOAD_FOLDER"],  image_filename))
     
     blog.title = title
     blog.excerpt = excerpt
