@@ -3,7 +3,16 @@ import {
     Stack,
 } from "@mui/material";
 
-export default function ProgramActions() {
+export default function ProgramActions({
+    onPublish,
+
+    onSaveDraft,
+
+    publishLoading,
+
+    draftLoading,
+
+}) {
 
     return (
 
@@ -18,7 +27,8 @@ export default function ProgramActions() {
             <Button
 
                 variant="outlined"
-
+                onClick={onSaveDraft}
+                disabled={draftLoading}
                 sx={{
 
                     borderRadius: "16px",
@@ -38,7 +48,8 @@ export default function ProgramActions() {
             <Button
 
                 variant="contained"
-
+                onClick={onPublish}
+                disabled={publishLoading}
                 sx={{
 
                     borderRadius: "16px",

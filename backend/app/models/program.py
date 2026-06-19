@@ -15,6 +15,11 @@ class Program(db.Model):
         db.String(255),
         nullable=False
     )
+    
+    excerpt = db.Column(
+    db.String(500),
+    nullable=False
+    )
 
     description = db.Column(
         db.Text,
@@ -31,12 +36,17 @@ class Program(db.Model):
         nullable=True
     )
 
-    is_active = db.Column(
-        db.Boolean,
-        default=True
+    status = db.Column(
+    db.String(20),
+    default="draft"
     )
 
     created_at = db.Column(
         db.DateTime,
         default=lambda: datetime.now(timezone.utc)
+    )
+    
+    admin_id = db.Column(
+    db.Integer,
+    nullable=False
     )

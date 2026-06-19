@@ -5,7 +5,17 @@ import {
     TextField,
 } from "@mui/material";
 
-export default function ProgramForm() {
+export default function ProgramForm({
+    title,
+    setTitle,
+
+    excerpt,
+    setExcerpt,
+
+    category,
+    setCategory,
+}
+) {
 
     return (
 
@@ -28,170 +38,76 @@ export default function ProgramForm() {
             }}
         >
 
-            <Grid
-                container
+            <Grid container spacing={3}>
 
-                spacing={3}
-            >
+                {/* PROGRAM NAME */}
 
                 <Grid size={{ xs: 12 }}>
 
                     <TextField
-
                         fullWidth
-
                         label="Program Name"
-
                         placeholder="Teen Wellness Program"
+                        value={title}
+                        onChange={(e) =>
+                            setTitle(e.target.value)
+                        }
                     />
 
                 </Grid>
 
 
+
+                {/* EXCERPT */}
 
                 <Grid size={{ xs: 12 }}>
 
                     <TextField
-
                         fullWidth
-
                         multiline
-
-                        rows={5}
-
-                        label="Description"
-
-                        placeholder="Describe the program objectives..."
+                        rows={3}
+                        label="Excerpt"
+                        placeholder="Short summary shown on program cards..."
+                        value={excerpt}
+                        onChange={(e) => setExcerpt(e.target.value)}
                     />
 
                 </Grid>
 
 
+
+                {/* CATEGORY */}
 
                 <Grid size={{ xs: 12, md: 6 }}>
 
                     <TextField
-
                         select
-
                         fullWidth
-
                         label="Category"
-
-                        defaultValue=""
+                        value={category}
+                        onChange={(e) =>
+                            setCategory(e.target.value)
+                        }
                     >
 
                         <MenuItem value="">
                             Select Category
                         </MenuItem>
 
-                        <MenuItem value="mental">
-                            Mental Wellness
-                        </MenuItem>
-
                         <MenuItem value="teen">
-                            Teen Wellness
+                            Teen Programs
                         </MenuItem>
 
-                        <MenuItem value="selfcare">
-                            Self Care
+                        <MenuItem value="family">
+                            Family Programs
                         </MenuItem>
 
-                    </TextField>
-
-                </Grid>
-
-
-
-                <Grid size={{ xs: 12, md: 6 }}>
-
-                    <TextField
-
-                        fullWidth
-
-                        label="Duration"
-
-                        placeholder="8 Weeks"
-                    />
-
-                </Grid>
-
-
-
-                <Grid size={{ xs: 12, md: 6 }}>
-
-                    <TextField
-
-                        fullWidth
-
-                        type="date"
-
-                        label="Start Date"
-
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-
-                </Grid>
-
-
-
-                <Grid size={{ xs: 12, md: 6 }}>
-
-                    <TextField
-
-                        fullWidth
-
-                        type="date"
-
-                        label="End Date"
-
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-
-                </Grid>
-
-
-
-                <Grid size={{ xs: 12, md: 6 }}>
-
-                    <TextField
-
-                        fullWidth
-
-                        type="number"
-
-                        label="Capacity"
-
-                        placeholder="50"
-                    />
-
-                </Grid>
-
-
-
-                <Grid size={{ xs: 12, md: 6 }}>
-
-                    <TextField
-
-                        select
-
-                        fullWidth
-
-                        label="Status"
-
-                        defaultValue="draft"
-                    >
-
-                        <MenuItem value="draft">
-                            Draft
+                        <MenuItem value="community">
+                            Community Programs
                         </MenuItem>
 
-                        <MenuItem value="active">
-                            Active
+                        <MenuItem value="school">
+                            School Programs
                         </MenuItem>
 
                     </TextField>
