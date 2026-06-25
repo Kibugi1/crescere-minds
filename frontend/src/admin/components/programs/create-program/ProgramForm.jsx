@@ -47,7 +47,7 @@ export default function ProgramForm({
                     <TextField
                         fullWidth
                         label="Program Name"
-                        placeholder="Teen Wellness Program"
+                        placeholder="What's the name of this Program?"
                         value={title}
                         onChange={(e) =>
                             setTitle(e.target.value)

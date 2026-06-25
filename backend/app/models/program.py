@@ -16,6 +16,12 @@ class Program(db.Model):
         nullable=False
     )
     
+    slug = db.Column(
+        db.String(255),
+        unique=True,
+        nullable=False
+    )
+    
     excerpt = db.Column(
     db.String(500),
     nullable=False
@@ -34,6 +40,11 @@ class Program(db.Model):
     image = db.Column(
         db.String(500),
         nullable=True
+    )
+    
+    featured = db.Column(
+    db.Boolean,
+    default=False
     )
 
     status = db.Column(
