@@ -9,6 +9,18 @@ from app.extensions.db import db
 
 from app.models.program import Program
 
+import os
+from flask import (
+    Blueprint,
+    request,
+    jsonify,
+    current_app
+)
+
+from werkzeug.utils import (
+    secure_filename
+)
+
 
 program_bp = Blueprint(
     "programs",
@@ -31,29 +43,69 @@ def create_program():
             "message": "Admins only"
         }, 403
 
-    data = request.get_json()
+    title = request.form.get("title")
+    excerpt = request.form.get("excerpt")
+    description = request.form.get("description")
+    category = request.form.get("category")
+    status = request.form.get("status")
+    image = request.files.get("image")
+    
+    image_filename = None
 
-    title = data.get("title")
-    description = data.get("description")
-    category = data.get("category")
-    image = data.get("image")
+    if image:
+        image_filename = secure_filename(
+            image.filename
+        )
+
+        image.save(
+
+            os.path.join(
+
+                current_app.config[
+                    "UPLOAD_FOLDER"
+                ],
+
+                image_filename
+            )
+        )
 
     new_program = Program(
-        title=title,
-        description=description,
-        category=category,
-        image=image
-    )
+
+    title=title,
+
+    excerpt=excerpt,
+
+    description=description,
+
+    category=category,
+
+    image=image_filename,
+
+    status=status,
+
+    admin_id=1
+)
 
     db.session.add(new_program)
 
     db.session.commit()
 
     return {
-        "success": True,
-        "message": "Program created successfully"
-    }, 201
 
+    "success": True,
+
+    "message": "Program created successfully",
+
+    "program": {
+
+        "id": new_program.id,
+
+        "title": new_program.title,
+
+        "category": new_program.category,
+    }
+
+        }, 201
 
 # GET ALL PROGRAMS
 @program_bp.route("/", methods=["GET"])
@@ -70,10 +122,11 @@ def get_programs():
         all_programs.append({
             "id": program.id,
             "title": program.title,
+            "excerpt": program.excerpt,
             "description": program.description,
             "category": program.category,
             "image": program.image,
-            "is_active": program.is_active,
+            "status": program.status,
             "created_at": program.created_at
         })
 

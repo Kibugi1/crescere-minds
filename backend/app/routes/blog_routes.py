@@ -83,21 +83,6 @@ def create_blog():
     }
 }, 201
 
-@blog_bp.route(
-    "/uploads/<filename>"
-)
-def uploaded_file(filename):
-
-    return send_from_directory(
-
-        os.path.join(
-            os.getcwd(),
-            "uploads"
-        ),
-
-        filename
-    )
-
 
 # GET ALL BLOGS
 @blog_bp.route("/", methods=["GET"])

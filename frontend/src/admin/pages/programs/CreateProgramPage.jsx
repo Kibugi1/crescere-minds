@@ -17,6 +17,8 @@ import ProgramActions from
 
 import { useState } from "react";
 
+import axios from "axios"
+
 export default function CreateProgramPage() {
 
     const [title, setTitle] = useState("");
@@ -82,71 +84,123 @@ export default function CreateProgramPage() {
         };
 
     const handlePublish =
-        () => {
+        async () => {
 
-            const formData =
-                buildProgramFormData(
-                    "published"
+            try {
+
+                setPublishLoading(
+                    true
                 );
 
-            console.log(
-                "PUBLISH"
-            );
+                const token =
+                    localStorage.getItem(
+                        "token"
+                    );
 
-            for (
+                const formData =
+                    buildProgramFormData(
+                        "published"
+                    );
 
-                const [
+                const response =
+                    await axios.post(
 
-                    key,
+                        "http://127.0.0.1:5000/api/programs/create",
 
-                    value,
+                        formData,
 
-                ]
+                        {
 
-                of
+                            headers: {
 
-                formData.entries()
+                                Authorization:
+                                    `Bearer ${token}`,
 
-            ) {
+                                "Content-Type":
+                                    "multipart/form-data",
+                            },
+                        }
+                    );
 
                 console.log(
-                    key,
-                    value
+                    response.data
+                );
+
+                alert(
+                    "Program published successfully!"
+                );
+
+            } catch (error) {
+
+                console.error(
+                    error.response?.data ||
+                    error
+                );
+
+                alert(
+                    error.response?.data?.message ||
+                    "Failed to publish program."
+                );
+
+            } finally {
+
+                setPublishLoading(
+                    false
                 );
             }
         };
 
     const handleSaveDraft =
-        () => {
+        async () => {
 
-            const formData =
-                buildProgramFormData(
-                    "draft"
+            try {
+
+                setDraftLoading(
+                    true
                 );
 
-            console.log(
-                "DRAFT"
-            );
+                const token =
+                    localStorage.getItem(
+                        "token"
+                    );
 
-            for (
+                const formData =
+                    buildProgramFormData(
+                        "draft"
+                    );
 
-                const [
+                const response =
+                    await axios.post(
 
-                    key,
+                        "http://127.0.0.1:5000/api/programs/create",
 
-                    value,
+                        formData,
 
-                ]
+                        {
 
-                of
+                            headers: {
 
-                formData.entries()
+                                Authorization:
+                                    `Bearer ${token}`,
 
-            ) {
+                                "Content-Type":
+                                    "multipart/form-data",
+                            },
+                        }
+                    );
 
                 console.log(
-                    key,
-                    value
+                    response.data
+                );
+
+                alert(
+                    "Draft saved!"
+                );
+
+            } finally {
+
+                setDraftLoading(
+                    false
                 );
             }
         };
