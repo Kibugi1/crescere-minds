@@ -175,7 +175,7 @@ export default function SingleBlog() {
 
                     src={
                         blog.image
-                            ? `http://127.0.0.1:5000/api/blogs/uploads/${blog.image}`
+                            ? `http://127.0.0.1:5000/api/uploads/${blog.image}`
                             : ""
                     }
 
