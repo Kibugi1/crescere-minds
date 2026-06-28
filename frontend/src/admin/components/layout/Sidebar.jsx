@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import Collapse from "@mui/material/Collapse";
+import greenlogo from "../../../assets/images/greencm.svg";
 
 import {
     Badge,
@@ -210,12 +211,7 @@ export default function Sidebar() {
                 {/* LOGO SECTION */}
 
                 <Stack
-                    direction="row"
-
-                    spacing={1.5}
-
                     alignItems="center"
-
                     sx={{
                         mb: 5,
                     }}
@@ -223,58 +219,24 @@ export default function Sidebar() {
 
                     <Box
                         component="img"
-
-                        src="/logo.png"
-
+                        src={greenlogo}
                         alt="Crescere Minds"
-
                         sx={{
-
-                            width: 60,
-
+                            width: 180,
                             objectFit: "contain",
-
-                            // Manipulation point:
-                            // increase width
-                            // for larger logo
+                            mb: 1.5,
                         }}
                     />
 
-
-
-                    <Box>
-
-                        <Typography
-                            sx={{
-
-                                fontWeight: 800,
-
-                                fontSize: "1.7rem",
-
-                                color: "#111827",
-
-                                lineHeight: 1.1,
-                            }}
-                        >
-                            Crescere Minds
-                        </Typography>
-
-
-
-                        <Typography
-                            sx={{
-
-                                color: "#6B7280",
-
-                                fontSize: "0.98rem",
-
-                                mt: 0.3,
-                            }}
-                        >
-                            Admin Dashboard
-                        </Typography>
-
-                    </Box>
+                    <Typography
+                        sx={{
+                            color: "#6B7280",
+                            fontSize: "1rem",
+                            fontWeight: 500,
+                        }}
+                    >
+                        Admin Dashboard
+                    </Typography>
 
                 </Stack>
 

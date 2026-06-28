@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 
 import heroDesktop from "../../assets/images/hero-desktop.png";
+import logo from "../../assets/images/CrescereLogo.svg";
 import heroMobile from "../../assets/images/hero-mobile.png";
 import { useNavigate } from "react-router-dom";
 
