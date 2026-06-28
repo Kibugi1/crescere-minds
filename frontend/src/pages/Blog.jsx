@@ -103,31 +103,28 @@ export default function Blog() {
                 </Box>
 
                 <Grid
-                    container
-                    spacing={4}
+                    container spacing={4}
                 >
 
-                    {blogs.map(
-                        (blog) => (
+                    {blogs.map((blog) => (
+                        <Grid
+                            key={
+                                blog.id
+                            }
+                            size={{
+                                xs: 12,
+                                md: 6,
+                                lg: 4,
+                            }}
+                        >
 
-                            <Grid
-                                item
-                                xs={12}
-                                md={6}
-                                lg={4}
+                            <BlogCard
+                                blog={blog}
+                            />
 
-                                key={
-                                    blog.id
-                                }
-                            >
+                        </Grid>
 
-                                <BlogCard
-                                    blog={blog}
-                                />
-
-                            </Grid>
-
-                        )
+                    )
                     )}
 
                 </Grid>

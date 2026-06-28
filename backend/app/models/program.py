@@ -18,8 +18,14 @@ class Program(db.Model):
     
     slug = db.Column(
         db.String(255),
-        unique=True,
         nullable=False
+    )
+    
+    __table_args__ = (
+    db.UniqueConstraint(
+        "slug",
+        name="uq_program_slug"
+    ),
     )
     
     excerpt = db.Column(

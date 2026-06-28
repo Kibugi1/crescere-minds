@@ -18,6 +18,10 @@ export default function BlogCard({
 
         <Box
             sx={{
+                display: "flex",
+                flexDirection: "column",
+
+                height: "100%",
 
                 backgroundColor:
                     "white",
@@ -66,7 +70,10 @@ export default function BlogCard({
 
             <Stack
                 spacing={2}
-                sx={{ p: 3 }}
+                sx={{
+                    p: 3,
+                    flexGrow: 1,
+                }}
             >
 
                 <Chip
@@ -85,10 +92,18 @@ export default function BlogCard({
 
                 <Typography
                     variant="h5"
-
                     sx={{
-                        fontWeight:
-                            700,
+                        fontWeight: 700,
+
+                        display: "-webkit-box",
+
+                        WebkitLineClamp: 2,
+
+                        WebkitBoxOrient: "vertical",
+
+                        overflow: "hidden",
+
+                        minHeight: 72,
                     }}
                 >
                     {blog.title}
@@ -98,8 +113,17 @@ export default function BlogCard({
 
                 <Typography
                     sx={{
-                        color:
-                            "#6B7280",
+                        color: "#6B7280",
+
+                        display: "-webkit-box",
+
+                        WebkitLineClamp: 3,
+
+                        WebkitBoxOrient: "vertical",
+
+                        overflow: "hidden",
+
+                        minHeight: 72,
                     }}
                 >
                     {blog.excerpt}
@@ -115,7 +139,16 @@ export default function BlogCard({
                             "#9CA3AF",
                     }}
                 >
-                    {blog.created_at}
+                    {new Date(
+                        blog.created_at
+                    ).toLocaleDateString(
+                        "en-GB",
+                        {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                        }
+                    )}
                 </Typography>
 
 
@@ -126,6 +159,9 @@ export default function BlogCard({
                     }
 
                     to={`/blog/${blog.id}`}
+                    sx={{
+                        mt: "auto",
+                    }}
                 >
                     Read More
                 </Button>
